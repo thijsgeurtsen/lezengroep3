@@ -1,1341 +1,519 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Lezen</title>
+<title>Kies het woord</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(145deg, #fff7d6, #eef8ff);
-      color: #24313a;
-    }
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #f7f3df;
+    color: #222;
+}
 
-    button {
-      font: inherit;
-    }
+main {
+    max-width: 850px;
+    margin: auto;
+    padding: 25px;
+    text-align: center;
+}
 
-    .app {
-      width: min(900px, 100%);
-      margin: 0 auto;
-      padding: 24px;
-    }
+h1 {
+    font-size: 34px;
+    margin-bottom: 25px;
+}
 
-    .screen {
-      display: none;
-    }
+#voortgang {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
 
-    .screen.active {
-      display: block;
-    }
+#plaatje {
+    width: min(520px, 95%);
+    aspect-ratio: 2 / 1;
 
-    /* BEGINPAGINA */
+    margin: 0 auto 30px;
 
-    #home {
-      min-height: 90vh;
-    }
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: 200% 300%;
 
-    #home.active {
-      display: grid;
-      place-items: center;
-    }
+    border: 4px solid #333;
+    border-radius: 25px;
+}
 
-    .menu {
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
+#antwoorden {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
 
-    .mode-button {
-      min-height: 180px;
+    max-width: 700px;
+    margin: auto;
+}
 
-      border: 3px solid #24313a;
-      border-radius: 28px;
+.antwoord {
+    min-height: 85px;
 
-      background: white;
+    border: 3px solid #333;
+    border-radius: 20px;
 
-      box-shadow: 0 8px 0 #d7c27c;
+    background: white;
 
-      font-size: 1.5rem;
-      font-weight: 900;
+    font-size: 30px;
+    font-weight: bold;
 
-      cursor: pointer;
-    }
+    cursor: pointer;
 
-    .mode-button:active {
-      transform: translateY(4px);
-      box-shadow: 0 4px 0 #d7c27c;
-    }
+    transition: transform 0.1s;
+}
 
-    /* OEFENSCHERM */
+.antwoord:hover {
+    transform: scale(1.03);
+}
 
-    .game-top {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 15px;
-      align-items: center;
+.antwoord:active {
+    transform: scale(0.97);
+}
 
-      margin-bottom: 18px;
-    }
+.fout {
+    background: #ffd9d9;
+    border-color: #b52d2d;
+}
 
-    .small-button {
-      border: 2px solid #24313a;
-      border-radius: 15px;
+#melding {
+    height: 45px;
 
-      background: white;
+    margin-top: 22px;
 
-      padding: 11px 16px;
+    font-size: 26px;
+    font-weight: bold;
+}
 
-      font-weight: 800;
+.goed {
+    color: #247534;
+}
 
-      cursor: pointer;
+.probeer {
+    color: #a05400;
+}
 
-      box-shadow: 0 4px 0 #bbbbbb;
-    }
+#klaar {
+    display: none;
 
-    .progress {
-      text-align: center;
-      font-weight: 900;
-    }
+    background: white;
 
-    .progress-track {
-      height: 11px;
+    border: 4px solid #333;
+    border-radius: 25px;
 
-      margin-top: 7px;
+    max-width: 500px;
 
-      background: #ddd8ca;
+    margin: 100px auto 0;
+    padding: 40px;
+}
 
-      border-radius: 20px;
+#klaar h2 {
+    font-size: 42px;
+}
 
-      overflow: hidden;
-    }
+#opnieuw {
+    padding: 18px 30px;
 
-    .progress-fill {
-      width: 0;
-      height: 100%;
+    border: 3px solid #333;
+    border-radius: 18px;
 
-      background: #f5ba37;
+    background: #fff0a8;
 
-      transition: width 0.2s;
-    }
+    font-size: 24px;
+    font-weight: bold;
 
-    .exercise-card {
-      background: white;
+    cursor: pointer;
+}
 
-      border: 3px solid #24313a;
-      border-radius: 28px;
+@media (max-width: 600px) {
 
-      padding: 25px;
-
-      text-align: center;
-
-      box-shadow: 0 8px 0 rgba(36, 49, 58, 0.12);
-    }
-
-    .instruction {
-      margin: 0 0 18px;
-
-      font-size: clamp(1.3rem, 4vw, 1.8rem);
-      font-weight: 900;
-    }
-
-    /* PLAATJE */
-
-    .picture {
-      width: min(520px, 100%);
-
-      aspect-ratio: 2 / 1;
-
-      margin: 0 auto 24px;
-
-      background-color: white;
-      background-repeat: no-repeat;
-      background-size: 200% 300%;
-
-      border: 3px solid #dddddd;
-      border-radius: 24px;
-
-      overflow: hidden;
-    }
-
-    /* WOORDKEUZES */
-
-    .choices {
-      width: min(650px, 100%);
-      margin: 0 auto;
-
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 13px;
-    }
-
-    .choice-button {
-      min-height: 78px;
-
-      border: 3px solid #24313a;
-      border-radius: 20px;
-
-      background: #fff4c7;
-
-      box-shadow: 0 6px 0 #cab45d;
-
-      font-size: clamp(1.5rem, 5vw, 2rem);
-      font-weight: 900;
-
-      cursor: pointer;
-    }
-
-    .choice-button.wrong {
-      background: #ffe0dd;
-      border-color: #a63b35;
-    }
-
-    .choice-button:disabled {
-      cursor: default;
-    }
-
-    /* WOORD BOUWEN */
-
-    .slots {
-      min-height: 75px;
-
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-
-      margin-bottom: 22px;
-    }
-
-    .slot {
-      width: 58px;
-      height: 68px;
-
-      border-bottom: 5px solid #24313a;
-
-      display: grid;
-      place-items: center;
-
-      font-size: 2.2rem;
-      font-weight: 900;
-    }
-
-    .letters {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 13px;
-    }
-
-    .letter-button {
-      width: 68px;
-      height: 68px;
-
-      border: 3px solid #24313a;
-      border-radius: 18px;
-
-      background: #dff3ff;
-
-      box-shadow: 0 6px 0 #9fbfce;
-
-      font-size: 2rem;
-      font-weight: 900;
-
-      cursor: pointer;
-    }
-
-    .letter-button.used {
-      visibility: hidden;
-    }
-
-    .erase-button {
-      margin-top: 20px;
-    }
-
-    /* FEEDBACK */
-
-    .feedback {
-      min-height: 36px;
-
-      margin-top: 18px;
-
-      font-size: 1.3rem;
-      font-weight: 900;
-    }
-
-    .feedback.good {
-      color: #28743b;
-    }
-
-    .feedback.try {
-      color: #995000;
-    }
-
-    /* KLAAR */
-
-    #finish {
-      min-height: 85vh;
-    }
-
-    #finish.active {
-      display: grid;
-      place-items: center;
-    }
-
-    .finish-card {
-      width: min(500px, 100%);
-
-      padding: 35px;
-
-      background: white;
-
-      border: 3px solid #24313a;
-      border-radius: 28px;
-
-      text-align: center;
-    }
-
-    .finish-card h2 {
-      margin-top: 0;
-
-      font-size: 2.6rem;
-    }
-
-    .finish-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    /* TELEFOON / TABLET */
-
-    @media (max-width: 650px) {
-
-      .menu {
+    #antwoorden {
         grid-template-columns: 1fr;
-      }
+    }
 
-      .mode-button {
-        min-height: 115px;
-      }
-
-      .choices {
-        grid-template-columns: 1fr;
-      }
-
-      .choice-button {
+    .antwoord {
         min-height: 65px;
-      }
-
     }
-  </style>
+
+    h1 {
+        font-size: 28px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<main class="app">
+<main>
 
-  <!-- BEGINPAGINA -->
+    <div id="spel">
 
-  <section id="home" class="screen active">
+        <h1>Kies het woord</h1>
 
-    <div class="menu">
+        <div id="voortgang"></div>
 
-      <button
-        class="mode-button"
-        data-mode="word">
-        Kies het woord
-      </button>
+        <div id="plaatje"></div>
 
-      <button
-        class="mode-button"
-        data-mode="letter">
-        Eerste letter
-      </button>
+        <div id="antwoorden"></div>
 
-      <button
-        class="mode-button"
-        data-mode="build">
-        Bouw het woord
-      </button>
+        <div id="melding"></div>
 
     </div>
 
-  </section>
+    <div id="klaar">
 
+        <h2>Klaar!</h2>
 
-  <!-- OEFENSCHERM -->
-
-  <section id="game" class="screen">
-
-    <div class="game-top">
-
-      <button
-        id="backButton"
-        class="small-button">
-        ← Terug
-      </button>
-
-      <div class="progress">
-
-        <span id="counter">
-          1 / 12
-        </span>
-
-        <div class="progress-track">
-          <div
-            id="progressFill"
-            class="progress-fill">
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="exercise-card">
-
-      <p
-        id="instruction"
-        class="instruction">
-      </p>
-
-      <div
-        id="picture"
-        class="picture">
-      </div>
-
-      <div id="answerArea">
-      </div>
-
-      <div
-        id="feedback"
-        class="feedback">
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- EINDSCHERM -->
-
-  <section id="finish" class="screen">
-
-    <div class="finish-card">
-
-      <h2>Klaar!</h2>
-
-      <div class="finish-buttons">
-
-        <button
-          id="againButton"
-          class="small-button">
-          Nog een keer
+        <button id="opnieuw">
+            Nog een keer
         </button>
 
-        <button
-          id="menuButton"
-          class="small-button">
-          Terug
-        </button>
-
-      </div>
-
     </div>
-
-  </section>
 
 </main>
 
-
 <script>
 
-  /*
-    PLAATJES
+/*
+    WEEK 1
 
-    plaatjes1.png:
+    plaatjes1.png
 
     sop | pop
     sok | pan
     pot | pil
 
 
-    plaatjes2.png:
+    plaatjes2.png
 
     pit | put
     sap | kom
     lus | sik
-  */
+*/
 
-  const WORDS = [
+
+const woorden = [
 
     {
-      word: "sop",
-      sheet: "plaatjes1.png",
-      column: 0,
-      row: 0
+        woord: "sop",
+        afbeelding: "weken/week01/plaatjes1.png",
+        kolom: 0,
+        rij: 0
     },
 
     {
-      word: "pop",
-      sheet: "plaatjes1.png",
-      column: 1,
-      row: 0
+        woord: "pop",
+        afbeelding: "weken/week01/plaatjes1.png",
+        kolom: 1,
+        rij: 0
     },
 
     {
-      word: "sok",
-      sheet: "plaatjes1.png",
-      column: 0,
-      row: 1
+        woord: "sok",
+        afbeelding: "weken/week01/plaatjes1.png",
+        kolom: 0,
+        rij: 1
     },
 
     {
-      word: "pan",
-      sheet: "plaatjes1.png",
-      column: 1,
-      row: 1
+        woord: "pan",
+        afbeelding: "weken/week01/plaatjes1.png",
+        kolom: 1,
+        rij: 1
     },
 
     {
-      word: "pot",
-      sheet: "plaatjes1.png",
-      column: 0,
-      row: 2
+        woord: "pot",
+        afbeelding: "weken/week01/plaatjes1.png",
+        kolom: 0,
+        rij: 2
     },
 
     {
-      word: "pil",
-      sheet: "plaatjes1.png",
-      column: 1,
-      row: 2
+        woord: "pil",
+        afbeelding: "weken/week01/plaatjes1.png",
+        kolom: 1,
+        rij: 2
     },
 
     {
-      word: "pit",
-      sheet: "plaatjes2.png",
-      column: 0,
-      row: 0
+        woord: "pit",
+        afbeelding: "weken/week01/plaatjes2.png",
+        kolom: 0,
+        rij: 0
     },
 
     {
-      word: "put",
-      sheet: "plaatjes2.png",
-      column: 1,
-      row: 0
+        woord: "put",
+        afbeelding: "weken/week01/plaatjes2.png",
+        kolom: 1,
+        rij: 0
     },
 
     {
-      word: "sap",
-      sheet: "plaatjes2.png",
-      column: 0,
-      row: 1
+        woord: "sap",
+        afbeelding: "weken/week01/plaatjes2.png",
+        kolom: 0,
+        rij: 1
     },
 
     {
-      word: "kom",
-      sheet: "plaatjes2.png",
-      column: 1,
-      row: 1
+        woord: "kom",
+        afbeelding: "weken/week01/plaatjes2.png",
+        kolom: 1,
+        rij: 1
     },
 
     {
-      word: "lus",
-      sheet: "plaatjes2.png",
-      column: 0,
-      row: 2
+        woord: "lus",
+        afbeelding: "weken/week01/plaatjes2.png",
+        kolom: 0,
+        rij: 2
     },
 
     {
-      word: "sik",
-      sheet: "plaatjes2.png",
-      column: 1,
-      row: 2
+        woord: "sik",
+        afbeelding: "weken/week01/plaatjes2.png",
+        kolom: 1,
+        rij: 2
     }
 
-  ];
+];
 
 
-  const START_LETTERS = [
-    ...new Set(
-      WORDS.map(item => item.word[0])
-    )
-  ];
+let ronde = [];
+let nummer = 0;
+let geblokkeerd = false;
 
 
-  const homeScreen =
-    document.querySelector("#home");
+const plaatje = document.getElementById("plaatje");
+const antwoorden = document.getElementById("antwoorden");
+const melding = document.getElementById("melding");
+const voortgang = document.getElementById("voortgang");
 
-  const gameScreen =
-    document.querySelector("#game");
-
-  const finishScreen =
-    document.querySelector("#finish");
-
-  const instruction =
-    document.querySelector("#instruction");
-
-  const picture =
-    document.querySelector("#picture");
-
-  const answerArea =
-    document.querySelector("#answerArea");
-
-  const feedback =
-    document.querySelector("#feedback");
-
-  const counter =
-    document.querySelector("#counter");
-
-  const progressFill =
-    document.querySelector("#progressFill");
+const spel = document.getElementById("spel");
+const klaar = document.getElementById("klaar");
 
 
-  let mode = "";
+function mix(lijst) {
 
-  let round = [];
+    const nieuw = [...lijst];
 
-  let currentIndex = 0;
+    for (let i = nieuw.length - 1; i > 0; i--) {
 
-  let locked = false;
+        const j =
+            Math.floor(Math.random() * (i + 1));
 
-  let builtLetters = [];
-
-
-  function shuffle(array) {
-
-    const copy = [...array];
-
-    for (
-      let i = copy.length - 1;
-      i > 0;
-      i--
-    ) {
-
-      const j =
-        Math.floor(
-          Math.random() * (i + 1)
-        );
-
-      [
-        copy[i],
-        copy[j]
-      ] = [
-        copy[j],
-        copy[i]
-      ];
-
+        [
+            nieuw[i],
+            nieuw[j]
+        ] = [
+            nieuw[j],
+            nieuw[i]
+        ];
     }
 
-    return copy;
-  }
+    return nieuw;
+}
 
 
-  function showScreen(screen) {
+function startSpel() {
 
-    homeScreen.classList.remove("active");
+    ronde = mix(woorden);
 
-    gameScreen.classList.remove("active");
+    nummer = 0;
 
-    finishScreen.classList.remove("active");
+    spel.style.display = "block";
+    klaar.style.display = "none";
 
-    screen.classList.add("active");
-  }
-
-
-  function currentWord() {
-
-    return round[currentIndex];
-  }
+    nieuweVraag();
+}
 
 
-  function startGame(selectedMode) {
+function nieuweVraag() {
 
-    mode = selectedMode;
+    geblokkeerd = false;
 
-    round = shuffle(WORDS);
+    melding.textContent = "";
+    melding.className = "";
 
-    currentIndex = 0;
+    const huidig = ronde[nummer];
 
-    showScreen(gameScreen);
+    voortgang.textContent =
+        `${nummer + 1} van ${ronde.length}`;
 
-    renderQuestion();
-  }
+    toonPlaatje(huidig);
 
-
-  function showPicture(item) {
-
-    picture.style.backgroundImage =
-      `url("${item.sheet}")`;
-
-    picture.style.backgroundSize =
-      "200% 300%";
+    maakAntwoorden(huidig);
+}
 
 
-    const horizontalPosition =
-      item.column === 0
-      ? "0%"
-      : "100%";
+function toonPlaatje(item) {
+
+    plaatje.style.backgroundImage =
+        `url("${item.afbeelding}")`;
+
+    plaatje.style.backgroundSize =
+        "200% 300%";
 
 
-    let verticalPosition = "0%";
+    const x =
+        item.kolom === 0
+        ? "0%"
+        : "100%";
 
-    if (item.row === 1) {
-      verticalPosition = "50%";
+
+    let y = "0%";
+
+    if (item.rij === 1) {
+        y = "50%";
     }
 
-    if (item.row === 2) {
-      verticalPosition = "100%";
+    if (item.rij === 2) {
+        y = "100%";
     }
 
 
-    picture.style.backgroundPosition =
-      `${horizontalPosition} ${verticalPosition}`;
-
-  }
-
-
-  function renderQuestion() {
-
-    locked = false;
-
-    builtLetters = [];
-
-    feedback.textContent = "";
-
-    feedback.className =
-      "feedback";
+    plaatje.style.backgroundPosition =
+        `${x} ${y}`;
+}
 
 
-    counter.textContent =
-      `${currentIndex + 1} / ${round.length}`;
+function maakAntwoorden(huidig) {
+
+    antwoorden.innerHTML = "";
 
 
-    progressFill.style.width =
-      `${(currentIndex / round.length) * 100}%`;
+    const andereWoorden = mix(
 
-
-    answerArea.innerHTML = "";
-
-
-    showPicture(
-      currentWord()
-    );
-
-
-    if (mode === "word") {
-
-      renderWordQuestion();
-
-    }
-
-
-    if (mode === "letter") {
-
-      renderLetterQuestion();
-
-    }
-
-
-    if (mode === "build") {
-
-      renderBuildQuestion();
-
-    }
-
-  }
-
-
-  /*
-    KIES HET WOORD
-  */
-
-  function renderWordQuestion() {
-
-    instruction.textContent =
-      "Welk woord hoort bij het plaatje?";
-
-
-    const wrongWords =
-      shuffle(
-
-        WORDS.filter(
-          item =>
-            item.word !==
-            currentWord().word
+        woorden.filter(
+            item =>
+                item.woord !== huidig.woord
         )
 
-      )
-      .slice(0, 2)
-      .map(
-        item => item.word
-      );
+    ).slice(0, 2);
 
 
-    const choices = [
+    const keuzes = mix([
 
-      currentWord().word,
+        huidig.woord,
 
-      ...wrongWords
+        andereWoorden[0].woord,
 
-    ];
+        andereWoorden[1].woord
 
-
-    createChoiceButtons(
-      choices,
-      currentWord().word
-    );
-
-  }
+    ]);
 
 
-  /*
-    EERSTE LETTER
-  */
+    keuzes.forEach(woord => {
 
-  function renderLetterQuestion() {
+        const knop =
+            document.createElement("button");
 
-    instruction.textContent =
-      "Wat is de eerste letter?";
+        knop.className =
+            "antwoord";
 
-
-    const correctLetter =
-      currentWord().word[0];
+        knop.textContent =
+            woord;
 
 
-    const wrongLetters =
-      shuffle(
-
-        START_LETTERS.filter(
-          letter =>
-            letter !==
-            correctLetter
-        )
-
-      )
-      .slice(0, 2);
-
-
-    const choices = [
-
-      correctLetter,
-
-      ...wrongLetters
-
-    ];
-
-
-    createChoiceButtons(
-      choices,
-      correctLetter
-    );
-
-  }
-
-
-  /*
-    KEUZEKNOPPEN
-  */
-
-  function createChoiceButtons(
-    choices,
-    correctAnswer
-  ) {
-
-    const container =
-      document.createElement("div");
-
-    container.className =
-      "choices";
-
-
-    shuffle(choices).forEach(
-      choice => {
-
-        const button =
-          document.createElement("button");
-
-
-        button.className =
-          "choice-button";
-
-
-        button.textContent =
-          choice;
-
-
-        button.addEventListener(
-          "click",
-          () => {
-
-            checkChoice(
-              button,
-              choice === correctAnswer
-            );
-
-          }
+        knop.addEventListener(
+            "click",
+            () =>
+                controleer(
+                    knop,
+                    woord,
+                    huidig.woord
+                )
         );
 
 
-        container.appendChild(
-          button
-        );
-
-      }
-    );
-
-
-    answerArea.appendChild(
-      container
-    );
-
-  }
-
-
-  function checkChoice(
-    button,
-    isCorrect
-  ) {
-
-    if (locked) {
-      return;
-    }
-
-
-    if (!isCorrect) {
-
-      button.classList.add(
-        "wrong"
-      );
-
-      button.disabled = true;
-
-      feedback.textContent =
-        "Probeer het nog eens.";
-
-      feedback.className =
-        "feedback try";
-
-      return;
-    }
-
-
-    locked = true;
-
-
-    feedback.textContent =
-      "Goed gedaan!";
-
-
-    feedback.className =
-      "feedback good";
-
-
-    setTimeout(
-      nextQuestion,
-      700
-    );
-
-  }
-
-
-  /*
-    BOUW HET WOORD
-  */
-
-  function renderBuildQuestion() {
-
-    instruction.textContent =
-      "Bouw het woord.";
-
-
-    const slots =
-      document.createElement("div");
-
-    slots.className =
-      "slots";
-
-
-    [
-      ...currentWord().word
-    ].forEach(
-      () => {
-
-        const slot =
-          document.createElement("div");
-
-        slot.className =
-          "slot";
-
-        slots.appendChild(
-          slot
-        );
-
-      }
-    );
-
-
-    const letters =
-      document.createElement("div");
-
-    letters.className =
-      "letters";
-
-
-    const letterObjects = [
-
-      ...currentWord().word
-
-    ].map(
-      (letter, id) => {
-
-        return {
-          letter: letter,
-          id: id
-        };
-
-      }
-    );
-
-
-    shuffle(
-      letterObjects
-    ).forEach(
-      item => {
-
-        const button =
-          document.createElement("button");
-
-
-        button.className =
-          "letter-button";
-
-
-        button.textContent =
-          item.letter;
-
-
-        button.addEventListener(
-          "click",
-          () => {
-
-            addLetter(
-              button,
-              item.letter
-            );
-
-          }
-        );
-
-
-        letters.appendChild(
-          button
-        );
-
-      }
-    );
-
-
-    const eraseButton =
-      document.createElement("button");
-
-
-    eraseButton.className =
-      "small-button erase-button";
-
-
-    eraseButton.textContent =
-      "Wis";
-
-
-    eraseButton.addEventListener(
-      "click",
-      clearBuild
-    );
-
-
-    answerArea.appendChild(
-      slots
-    );
-
-
-    answerArea.appendChild(
-      letters
-    );
-
-
-    answerArea.appendChild(
-      eraseButton
-    );
-
-  }
-
-
-  function addLetter(
-    button,
-    letter
-  ) {
-
-    if (locked) {
-      return;
-    }
-
-
-    if (
-      button.classList.contains(
-        "used"
-      )
-    ) {
-      return;
-    }
-
-
-    builtLetters.push({
-
-      button: button,
-
-      letter: letter
+        antwoorden.appendChild(knop);
 
     });
+}
 
 
-    button.classList.add(
-      "used"
-    );
+function controleer(knop, gekozen, goedWoord) {
 
-
-    updateSlots();
-
-
-    if (
-      builtLetters.length ===
-      currentWord().word.length
-    ) {
-
-      const builtWord =
-        builtLetters
-          .map(
-            item => item.letter
-          )
-          .join("");
-
-
-      if (
-        builtWord ===
-        currentWord().word
-      ) {
-
-        locked = true;
-
-
-        feedback.textContent =
-          "Goed gedaan!";
-
-
-        feedback.className =
-          "feedback good";
-
-
-        setTimeout(
-          nextQuestion,
-          700
-        );
-
-      } else {
-
-        feedback.textContent =
-          "Probeer het nog eens.";
-
-
-        feedback.className =
-          "feedback try";
-
-
-        setTimeout(
-          clearBuild,
-          700
-        );
-
-      }
-
+    if (geblokkeerd) {
+        return;
     }
 
-  }
+
+    if (gekozen !== goedWoord) {
+
+        knop.classList.add("fout");
+
+        knop.disabled = true;
+
+        melding.textContent =
+            "Probeer het nog eens.";
+
+        melding.className =
+            "probeer";
+
+        return;
+    }
 
 
-  function updateSlots() {
+    geblokkeerd = true;
 
-    const slots =
-      answerArea.querySelectorAll(
-        ".slot"
-      );
+    melding.textContent =
+        "Goed gedaan!";
+
+    melding.className =
+        "goed";
 
 
-    slots.forEach(
-      (slot, index) => {
+    setTimeout(() => {
 
-        if (
-          builtLetters[index]
-        ) {
+        nummer++;
 
-          slot.textContent =
-            builtLetters[index].letter;
+        if (nummer >= ronde.length) {
+
+            eindeSpel();
 
         } else {
 
-          slot.textContent =
-            "";
+            nieuweVraag();
 
         }
 
-      }
-    );
-
-  }
+    }, 700);
+}
 
 
-  function clearBuild() {
+function eindeSpel() {
 
-    builtLetters.forEach(
-      item => {
+    spel.style.display = "none";
 
-        item.button.classList.remove(
-          "used"
-        );
-
-      }
-    );
+    klaar.style.display = "block";
+}
 
 
-    builtLetters = [];
-
-
-    updateSlots();
-
-
-    feedback.textContent =
-      "";
-
-
-    feedback.className =
-      "feedback";
-
-  }
-
-
-  /*
-    VOLGENDE
-  */
-
-  function nextQuestion() {
-
-    currentIndex++;
-
-
-    if (
-      currentIndex >=
-      round.length
-    ) {
-
-      progressFill.style.width =
-        "100%";
-
-
-      showScreen(
-        finishScreen
-      );
-
-      return;
-    }
-
-
-    renderQuestion();
-
-  }
-
-
-  /*
-    KNOPPEN
-  */
-
-  document
-    .querySelectorAll(
-      ".mode-button"
-    )
-    .forEach(
-      button => {
-
-        button.addEventListener(
-          "click",
-          () => {
-
-            startGame(
-              button.dataset.mode
-            );
-
-          }
-        );
-
-      }
-    );
-
-
-  document
-    .querySelector(
-      "#backButton"
-    )
+document
+    .getElementById("opnieuw")
     .addEventListener(
-      "click",
-      () => {
-
-        showScreen(
-          homeScreen
-        );
-
-      }
+        "click",
+        startSpel
     );
 
 
-  document
-    .querySelector(
-      "#againButton"
-    )
-    .addEventListener(
-      "click",
-      () => {
-
-        startGame(
-          mode
-        );
-
-      }
-    );
-
-
-  document
-    .querySelector(
-      "#menuButton"
-    )
-    .addEventListener(
-      "click",
-      () => {
-
-        showScreen(
-          homeScreen
-        );
-
-      }
-    );
+startSpel();
 
 </script>
 
