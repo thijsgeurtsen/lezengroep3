@@ -26,6 +26,35 @@ main {
     text-align: center;
 }
 
+/* TERUGKNOP */
+
+.terug-knop {
+    position: fixed;
+    top: 22px;
+    left: 22px;
+
+    padding: 13px 20px;
+
+    border: 3px solid #333;
+    border-radius: 16px;
+
+    background: white;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 0 #bbb;
+
+    z-index: 10;
+}
+
+.terug-knop:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #bbb;
+}
+
 h1 {
     font-size: 34px;
     margin-bottom: 25px;
@@ -36,6 +65,8 @@ h1 {
     font-weight: bold;
     margin-bottom: 15px;
 }
+
+/* PLAATJE */
 
 #plaatje {
     width: min(520px, 95%);
@@ -50,6 +81,8 @@ h1 {
     border: 4px solid #333;
     border-radius: 25px;
 }
+
+/* ANTWOORDEN */
 
 #antwoorden {
     display: grid;
@@ -89,6 +122,8 @@ h1 {
     border-color: #b52d2d;
 }
 
+/* MELDING */
+
 #melding {
     height: 45px;
 
@@ -105,6 +140,8 @@ h1 {
 .probeer {
     color: #a05400;
 }
+
+/* KLAAR */
 
 #klaar {
     display: none;
@@ -138,7 +175,13 @@ h1 {
     cursor: pointer;
 }
 
+/* TELEFOON / TABLET */
+
 @media (max-width: 600px) {
+
+    main {
+        padding-top: 85px;
+    }
 
     #antwoorden {
         grid-template-columns: 1fr;
@@ -151,11 +194,24 @@ h1 {
     h1 {
         font-size: 28px;
     }
+
+    .terug-knop {
+        top: 15px;
+        left: 15px;
+
+        padding: 10px 15px;
+
+        font-size: 17px;
+    }
 }
 </style>
 </head>
 
 <body>
+
+<button id="terugKnop" class="terug-knop">
+    ← Terug
+</button>
 
 <main>
 
@@ -173,6 +229,7 @@ h1 {
 
     </div>
 
+
     <div id="klaar">
 
         <h2>Klaar!</h2>
@@ -184,6 +241,7 @@ h1 {
     </div>
 
 </main>
+
 
 <script>
 
@@ -299,13 +357,23 @@ let nummer = 0;
 let geblokkeerd = false;
 
 
-const plaatje = document.getElementById("plaatje");
-const antwoorden = document.getElementById("antwoorden");
-const melding = document.getElementById("melding");
-const voortgang = document.getElementById("voortgang");
+const plaatje =
+    document.getElementById("plaatje");
 
-const spel = document.getElementById("spel");
-const klaar = document.getElementById("klaar");
+const antwoorden =
+    document.getElementById("antwoorden");
+
+const melding =
+    document.getElementById("melding");
+
+const voortgang =
+    document.getElementById("voortgang");
+
+const spel =
+    document.getElementById("spel");
+
+const klaar =
+    document.getElementById("klaar");
 
 
 function mix(lijst) {
@@ -315,7 +383,9 @@ function mix(lijst) {
     for (let i = nieuw.length - 1; i > 0; i--) {
 
         const j =
-            Math.floor(Math.random() * (i + 1));
+            Math.floor(
+                Math.random() * (i + 1)
+            );
 
         [
             nieuw[i],
@@ -447,7 +517,11 @@ function maakAntwoorden(huidig) {
 }
 
 
-function controleer(knop, gekozen, goedWoord) {
+function controleer(
+    knop,
+    gekozen,
+    goedWoord
+) {
 
     if (geblokkeerd) {
         return;
@@ -505,11 +579,27 @@ function eindeSpel() {
 }
 
 
+/* OPNIEUW */
+
 document
     .getElementById("opnieuw")
     .addEventListener(
         "click",
         startSpel
+    );
+
+
+/* TERUG */
+
+document
+    .getElementById("terugKnop")
+    .addEventListener(
+        "click",
+        () => {
+
+            history.back();
+
+        }
     );
 
 
