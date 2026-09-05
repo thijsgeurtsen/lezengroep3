@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Kies het woord</title>
+<title>Lezen</title>
 
 <style>
 * {
@@ -20,15 +20,79 @@ body {
 }
 
 main {
-    max-width: 850px;
+    max-width: 950px;
     margin: auto;
-    padding: 25px;
+    padding: 30px 25px;
     text-align: center;
 }
 
-/* TERUGKNOP */
+/* ------------------------------
+   STARTMENU
+------------------------------ */
+
+#startMenu {
+    min-height: 85vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.menu-knoppen {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+
+    max-width: 900px;
+    width: 100%;
+
+    margin: auto;
+}
+
+.menu-knop {
+    min-height: 170px;
+
+    padding: 20px;
+
+    border: 4px solid #333;
+    border-radius: 26px;
+
+    background: white;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 0 #c8b970;
+
+    transition:
+        transform 0.1s,
+        box-shadow 0.1s;
+}
+
+.menu-knop:hover:not(:disabled) {
+    transform: scale(1.02);
+}
+
+.menu-knop:active:not(:disabled) {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 #c8b970;
+}
+
+.menu-knop:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+/* ------------------------------
+   TERUGKNOP
+------------------------------ */
 
 .terug-knop {
+    display: none;
+
     position: fixed;
     top: 22px;
     left: 22px;
@@ -55,24 +119,35 @@ main {
     box-shadow: 0 2px 0 #bbb;
 }
 
+/* ------------------------------
+   SPEL
+------------------------------ */
+
+#spel {
+    display: none;
+}
+
 h1 {
-    font-size: 34px;
-    margin-bottom: 25px;
+    font-size: 38px;
+    margin: 10px 0 28px;
 }
 
 #voortgang {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
-    margin-bottom: 15px;
+
+    margin-bottom: 20px;
 }
 
-/* PLAATJE */
+/* ------------------------------
+   PLAATJE
+------------------------------ */
 
 #plaatje {
     width: min(520px, 95%);
     aspect-ratio: 2 / 1;
 
-    margin: 0 auto 30px;
+    margin: 0 auto 35px;
 
     background-color: white;
     background-repeat: no-repeat;
@@ -80,33 +155,41 @@ h1 {
 
     border: 4px solid #333;
     border-radius: 25px;
+
+    overflow: hidden;
 }
 
-/* ANTWOORDEN */
+/* ------------------------------
+   ANTWOORDEN
+------------------------------ */
 
 #antwoorden {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+
     gap: 18px;
 
-    max-width: 700px;
+    max-width: 750px;
+
     margin: auto;
 }
 
 .antwoord {
-    min-height: 85px;
+    min-height: 90px;
 
     border: 3px solid #333;
     border-radius: 20px;
 
     background: white;
 
-    font-size: 30px;
+    font-size: 32px;
     font-weight: bold;
 
     cursor: pointer;
 
-    transition: transform 0.1s;
+    transition:
+        transform 0.1s,
+        background 0.2s;
 }
 
 .antwoord:hover {
@@ -117,19 +200,21 @@ h1 {
     transform: scale(0.97);
 }
 
-.fout {
+.antwoord.fout {
     background: #ffd9d9;
     border-color: #b52d2d;
 }
 
-/* MELDING */
+/* ------------------------------
+   MELDING
+------------------------------ */
 
 #melding {
-    height: 45px;
+    min-height: 45px;
 
-    margin-top: 22px;
+    margin-top: 24px;
 
-    font-size: 26px;
+    font-size: 27px;
     font-weight: bold;
 }
 
@@ -141,46 +226,85 @@ h1 {
     color: #a05400;
 }
 
-/* KLAAR */
+/* ------------------------------
+   KLAAR
+------------------------------ */
 
 #klaar {
     display: none;
 
+    min-height: 80vh;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.klaar-kaart {
+    width: min(500px, 95%);
+
     background: white;
 
     border: 4px solid #333;
-    border-radius: 25px;
+    border-radius: 28px;
 
-    max-width: 500px;
-
-    margin: 100px auto 0;
-    padding: 40px;
+    padding: 45px 30px;
 }
 
-#klaar h2 {
-    font-size: 42px;
+.klaar-kaart h2 {
+    margin-top: 0;
+
+    font-size: 45px;
 }
 
-#opnieuw {
-    padding: 18px 30px;
+.klaar-knoppen {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.klaar-knop {
+    padding: 17px 25px;
 
     border: 3px solid #333;
     border-radius: 18px;
 
     background: #fff0a8;
 
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
 
     cursor: pointer;
 }
 
-/* TELEFOON / TABLET */
+.klaar-knop.secundair {
+    background: white;
+}
 
-@media (max-width: 600px) {
+/* ------------------------------
+   TELEFOON / TABLET
+------------------------------ */
+
+@media (max-width: 700px) {
 
     main {
-        padding-top: 85px;
+        padding: 85px 18px 25px;
+    }
+
+    #startMenu {
+        min-height: 70vh;
+    }
+
+    .menu-knoppen {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-knop {
+        min-height: 110px;
+        font-size: 24px;
     }
 
     #antwoorden {
@@ -188,16 +312,16 @@ h1 {
     }
 
     .antwoord {
-        min-height: 65px;
+        min-height: 70px;
     }
 
     h1 {
-        font-size: 28px;
+        font-size: 30px;
     }
 
     .terug-knop {
-        top: 15px;
-        left: 15px;
+        top: 14px;
+        left: 14px;
 
         padding: 10px 15px;
 
@@ -213,9 +337,45 @@ h1 {
     ← Terug
 </button>
 
+
 <main>
 
-    <div id="spel">
+    <!-- =========================
+         STARTMENU
+    ========================== -->
+
+    <section id="startMenu">
+
+        <div class="menu-knoppen">
+
+            <button
+                id="kiesWoordKnop"
+                class="menu-knop">
+                Kies het woord
+            </button>
+
+            <button
+                class="menu-knop"
+                disabled>
+                Eerste letter
+            </button>
+
+            <button
+                class="menu-knop"
+                disabled>
+                Bouw het woord
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SPEL 1
+    ========================== -->
+
+    <section id="spel">
 
         <h1>Kies het woord</h1>
 
@@ -227,18 +387,38 @@ h1 {
 
         <div id="melding"></div>
 
-    </div>
+    </section>
 
 
-    <div id="klaar">
+    <!-- =========================
+         EINDSCHERM
+    ========================== -->
 
-        <h2>Klaar!</h2>
+    <section id="klaar">
 
-        <button id="opnieuw">
-            Nog een keer
-        </button>
+        <div class="klaar-kaart">
 
-    </div>
+            <h2>Klaar!</h2>
+
+            <div class="klaar-knoppen">
+
+                <button
+                    id="opnieuwKnop"
+                    class="klaar-knop">
+                    Nog een keer
+                </button>
+
+                <button
+                    id="menuKnop"
+                    class="klaar-knop secundair">
+                    Terug naar menu
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
 
 </main>
 
@@ -246,20 +426,22 @@ h1 {
 <script>
 
 /*
-    WEEK 1
+====================================
+WEEK 1
 
-    plaatjes1.png
+plaatjes1.png
 
-    sop | pop
-    sok | pan
-    pot | pil
+sop | pop
+sok | pan
+pot | pil
 
 
-    plaatjes2.png
+plaatjes2.png
 
-    pit | put
-    sap | kom
-    lus | sik
+pit | put
+sap | kom
+lus | sik
+====================================
 */
 
 
@@ -352,10 +534,32 @@ const woorden = [
 ];
 
 
+/* ================================
+   VARIABELEN
+================================ */
+
 let ronde = [];
+
 let nummer = 0;
+
 let geblokkeerd = false;
 
+
+/* ================================
+   ELEMENTEN
+================================ */
+
+const startMenu =
+    document.getElementById("startMenu");
+
+const spel =
+    document.getElementById("spel");
+
+const klaar =
+    document.getElementById("klaar");
+
+const terugKnop =
+    document.getElementById("terugKnop");
 
 const plaatje =
     document.getElementById("plaatje");
@@ -369,18 +573,20 @@ const melding =
 const voortgang =
     document.getElementById("voortgang");
 
-const spel =
-    document.getElementById("spel");
 
-const klaar =
-    document.getElementById("klaar");
-
+/* ================================
+   LIJST DOOR ELKAAR HUSSEN
+================================ */
 
 function mix(lijst) {
 
     const nieuw = [...lijst];
 
-    for (let i = nieuw.length - 1; i > 0; i--) {
+    for (
+        let i = nieuw.length - 1;
+        i > 0;
+        i--
+    ) {
 
         const j =
             Math.floor(
@@ -394,11 +600,33 @@ function mix(lijst) {
             nieuw[j],
             nieuw[i]
         ];
+
     }
 
     return nieuw;
 }
 
+
+/* ================================
+   STARTMENU TONEN
+================================ */
+
+function toonMenu() {
+
+    startMenu.style.display = "flex";
+
+    spel.style.display = "none";
+
+    klaar.style.display = "none";
+
+    terugKnop.style.display = "none";
+
+}
+
+
+/* ================================
+   SPEL STARTEN
+================================ */
 
 function startSpel() {
 
@@ -406,35 +634,56 @@ function startSpel() {
 
     nummer = 0;
 
-    spel.style.display = "block";
+    startMenu.style.display = "none";
+
     klaar.style.display = "none";
 
+    spel.style.display = "block";
+
+    terugKnop.style.display = "block";
+
     nieuweVraag();
+
 }
 
+
+/* ================================
+   NIEUWE VRAAG
+================================ */
 
 function nieuweVraag() {
 
     geblokkeerd = false;
 
     melding.textContent = "";
+
     melding.className = "";
 
-    const huidig = ronde[nummer];
+
+    const huidig =
+        ronde[nummer];
+
 
     voortgang.textContent =
         `${nummer + 1} van ${ronde.length}`;
 
+
     toonPlaatje(huidig);
 
     maakAntwoorden(huidig);
+
 }
 
+
+/* ================================
+   PLAATJE TONEN
+================================ */
 
 function toonPlaatje(item) {
 
     plaatje.style.backgroundImage =
         `url("${item.afbeelding}")`;
+
 
     plaatje.style.backgroundSize =
         "200% 300%";
@@ -448,74 +697,104 @@ function toonPlaatje(item) {
 
     let y = "0%";
 
+
     if (item.rij === 1) {
+
         y = "50%";
+
     }
 
+
     if (item.rij === 2) {
+
         y = "100%";
+
     }
 
 
     plaatje.style.backgroundPosition =
         `${x} ${y}`;
+
 }
 
+
+/* ================================
+   ANTWOORDEN MAKEN
+================================ */
 
 function maakAntwoorden(huidig) {
 
     antwoorden.innerHTML = "";
 
 
-    const andereWoorden = mix(
+    const andereWoorden =
+        mix(
 
-        woorden.filter(
-            item =>
-                item.woord !== huidig.woord
-        )
-
-    ).slice(0, 2);
-
-
-    const keuzes = mix([
-
-        huidig.woord,
-
-        andereWoorden[0].woord,
-
-        andereWoorden[1].woord
-
-    ]);
-
-
-    keuzes.forEach(woord => {
-
-        const knop =
-            document.createElement("button");
-
-        knop.className =
-            "antwoord";
-
-        knop.textContent =
-            woord;
-
-
-        knop.addEventListener(
-            "click",
-            () =>
-                controleer(
-                    knop,
-                    woord,
+            woorden.filter(
+                item =>
+                    item.woord !==
                     huidig.woord
-                )
-        );
+            )
+
+        ).slice(0, 2);
 
 
-        antwoorden.appendChild(knop);
+    const keuzes =
+        mix([
 
-    });
+            huidig.woord,
+
+            andereWoorden[0].woord,
+
+            andereWoorden[1].woord
+
+        ]);
+
+
+    keuzes.forEach(
+        woord => {
+
+            const knop =
+                document.createElement(
+                    "button"
+                );
+
+
+            knop.className =
+                "antwoord";
+
+
+            knop.textContent =
+                woord;
+
+
+            knop.addEventListener(
+                "click",
+                () => {
+
+                    controleer(
+                        knop,
+                        woord,
+                        huidig.woord
+                    );
+
+                }
+            );
+
+
+            antwoorden.appendChild(
+                knop
+            );
+
+        }
+    );
+
 }
 
+
+/* ================================
+   ANTWOORD CONTROLEREN
+================================ */
 
 function controleer(
     knop,
@@ -524,86 +803,147 @@ function controleer(
 ) {
 
     if (geblokkeerd) {
+
         return;
+
     }
 
 
+    /* FOUT */
+
     if (gekozen !== goedWoord) {
 
-        knop.classList.add("fout");
+        knop.classList.add(
+            "fout"
+        );
 
         knop.disabled = true;
+
 
         melding.textContent =
             "Probeer het nog eens.";
 
+
         melding.className =
             "probeer";
 
+
         return;
+
     }
 
 
+    /* GOED */
+
     geblokkeerd = true;
+
 
     melding.textContent =
         "Goed gedaan!";
+
 
     melding.className =
         "goed";
 
 
-    setTimeout(() => {
+    setTimeout(
+        () => {
 
-        nummer++;
+            nummer++;
 
-        if (nummer >= ronde.length) {
 
-            eindeSpel();
+            if (
+                nummer >=
+                ronde.length
+            ) {
 
-        } else {
+                eindeSpel();
 
-            nieuweVraag();
+            }
 
-        }
+            else {
 
-    }, 700);
+                nieuweVraag();
+
+            }
+
+        },
+        700
+    );
+
 }
 
+
+/* ================================
+   EINDE SPEL
+================================ */
 
 function eindeSpel() {
 
     spel.style.display = "none";
 
-    klaar.style.display = "block";
+    klaar.style.display = "flex";
+
+    terugKnop.style.display = "none";
+
 }
 
 
-/* OPNIEUW */
+/* ================================
+   KNOPPEN
+================================ */
+
+
+/* Kies het woord */
 
 document
-    .getElementById("opnieuw")
+    .getElementById(
+        "kiesWoordKnop"
+    )
     .addEventListener(
         "click",
         startSpel
     );
 
 
-/* TERUG */
+/* Terug tijdens het spel */
 
-document
-    .getElementById("terugKnop")
+terugKnop
     .addEventListener(
         "click",
-        () => {
-
-            history.back();
-
-        }
+        toonMenu
     );
 
 
-startSpel();
+/* Nog een keer */
+
+document
+    .getElementById(
+        "opnieuwKnop"
+    )
+    .addEventListener(
+        "click",
+        startSpel
+    );
+
+
+/* Terug naar menu na afloop */
+
+document
+    .getElementById(
+        "menuKnop"
+    )
+    .addEventListener(
+        "click",
+        toonMenu
+    );
+
+
+/* ================================
+   APP START OP MENU
+================================ */
+
+toonMenu();
 
 </script>
 
