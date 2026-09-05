@@ -7,6 +7,7 @@
 <title>Lezen</title>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -26,12 +27,14 @@ main {
     text-align: center;
 }
 
+
 /* =========================
    STARTMENU
 ========================= */
 
 #startMenu {
     min-height: 85vh;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,13 +42,16 @@ main {
 
 .menu-knoppen {
     width: 100%;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+
     gap: 22px;
 }
 
 .menu-knop {
     min-height: 170px;
+
     padding: 20px;
 
     border: 4px solid #333;
@@ -59,34 +65,28 @@ main {
     cursor: pointer;
 
     box-shadow: 0 8px 0 #c8b970;
-
-    transition:
-        transform 0.1s,
-        box-shadow 0.1s;
 }
 
-.menu-knop:hover:not(:disabled) {
+.menu-knop:hover {
     transform: scale(1.02);
 }
 
-.menu-knop:active:not(:disabled) {
+.menu-knop:active {
     transform: translateY(4px);
+
     box-shadow: 0 4px 0 #c8b970;
 }
 
-.menu-knop:disabled {
-    opacity: 0.4;
-    cursor: default;
-}
 
 /* =========================
-   TERUGKNOP
+   TERUG
 ========================= */
 
 .terug-knop {
     display: none;
 
     position: fixed;
+
     top: 22px;
     left: 22px;
 
@@ -109,8 +109,10 @@ main {
 
 .terug-knop:active {
     transform: translateY(3px);
+
     box-shadow: 0 2px 0 #bbb;
 }
+
 
 /* =========================
    SPEL
@@ -122,14 +124,24 @@ main {
 
 h1 {
     font-size: 38px;
-    margin: 10px 0 25px;
+
+    margin: 10px 0 8px;
+}
+
+#instructie {
+    font-size: 24px;
+    font-weight: bold;
+
+    margin-bottom: 18px;
 }
 
 #voortgang {
-    font-size: 22px;
+    font-size: 21px;
     font-weight: bold;
+
     margin-bottom: 20px;
 }
+
 
 /* =========================
    PLAATJE
@@ -137,9 +149,9 @@ h1 {
 
 .plaatje-vak {
     width: min(540px, 95%);
-    height: 330px;
+    height: 320px;
 
-    margin: 0 auto 35px;
+    margin: 0 auto 32px;
 
     display: flex;
     align-items: center;
@@ -162,8 +174,9 @@ h1 {
     padding: 12px;
 }
 
+
 /* =========================
-   ANTWOORDEN
+   ANTWOORDEN SPEL 1 EN 2
 ========================= */
 
 #antwoorden {
@@ -189,10 +202,6 @@ h1 {
     font-weight: bold;
 
     cursor: pointer;
-
-    transition:
-        transform 0.1s,
-        background 0.2s;
 }
 
 .antwoord:hover {
@@ -205,8 +214,99 @@ h1 {
 
 .antwoord.fout {
     background: #ffd9d9;
+
     border-color: #b52d2d;
 }
+
+.letter-knop {
+    font-size: 46px;
+
+    text-transform: lowercase;
+}
+
+
+/* =========================
+   SPEL 3 - BOUW HET WOORD
+========================= */
+
+#bouwGebied {
+    display: none;
+}
+
+#woordVakken {
+    display: flex;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 0 auto 30px;
+}
+
+.woord-vak {
+    width: 72px;
+    height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-bottom: 6px solid #333;
+
+    font-size: 44px;
+    font-weight: bold;
+}
+
+#losseLetters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 16px;
+}
+
+.losse-letter {
+    width: 82px;
+    height: 82px;
+
+    border: 3px solid #333;
+    border-radius: 20px;
+
+    background: white;
+
+    font-size: 42px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 0 #c8b970;
+}
+
+.losse-letter:active {
+    transform: translateY(3px);
+
+    box-shadow: 0 3px 0 #c8b970;
+}
+
+.losse-letter.gebruikt {
+    visibility: hidden;
+}
+
+#wisKnop {
+    margin-top: 25px;
+
+    padding: 12px 22px;
+
+    border: 3px solid #333;
+    border-radius: 15px;
+
+    background: white;
+
+    font-size: 19px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
 
 /* =========================
    MELDING
@@ -229,8 +329,9 @@ h1 {
     color: #a05400;
 }
 
+
 /* =========================
-   EINDSCHERM
+   KLAAR
 ========================= */
 
 #klaar {
@@ -255,6 +356,7 @@ h1 {
 
 .klaar-kaart h2 {
     margin-top: 0;
+
     font-size: 45px;
 }
 
@@ -286,6 +388,7 @@ h1 {
     background: white;
 }
 
+
 /* =========================
    TELEFOON / TABLET
 ========================= */
@@ -306,11 +409,12 @@ h1 {
 
     .menu-knop {
         min-height: 110px;
+
         font-size: 24px;
     }
 
     .plaatje-vak {
-        height: 260px;
+        height: 250px;
     }
 
     #antwoorden {
@@ -325,6 +429,10 @@ h1 {
         font-size: 30px;
     }
 
+    #instructie {
+        font-size: 20px;
+    }
+
     .terug-knop {
         top: 14px;
         left: 14px;
@@ -333,101 +441,150 @@ h1 {
 
         font-size: 17px;
     }
+
+    .woord-vak {
+        width: 58px;
+        height: 65px;
+
+        font-size: 36px;
+    }
+
+    .losse-letter {
+        width: 70px;
+        height: 70px;
+
+        font-size: 36px;
+    }
 }
+
 </style>
 </head>
 
 
 <body>
 
-<button id="terugKnop" class="terug-knop">
+
+<button
+    id="terugKnop"
+    class="terug-knop">
     ← Terug
 </button>
 
 
 <main>
 
-    <!-- =====================
-         STARTMENU
-    ====================== -->
 
-    <section id="startMenu">
+<!-- =========================
+     STARTMENU
+========================= -->
 
-        <div class="menu-knoppen">
+<section id="startMenu">
+
+    <div class="menu-knoppen">
+
+        <button
+            id="kiesWoordKnop"
+            class="menu-knop">
+            Kies het woord
+        </button>
+
+        <button
+            id="eersteLetterKnop"
+            class="menu-knop">
+            Eerste letter
+        </button>
+
+        <button
+            id="bouwWoordKnop"
+            class="menu-knop">
+            Bouw het woord
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SPEL
+========================= -->
+
+<section id="spel">
+
+    <h1 id="spelTitel"></h1>
+
+    <div id="instructie"></div>
+
+    <div id="voortgang"></div>
+
+
+    <div class="plaatje-vak">
+
+        <img
+            id="plaatje"
+            src=""
+            alt="">
+
+    </div>
+
+
+    <!-- Spel 1 en 2 -->
+
+    <div id="antwoorden"></div>
+
+
+    <!-- Spel 3 -->
+
+    <div id="bouwGebied">
+
+        <div id="woordVakken"></div>
+
+        <div id="losseLetters"></div>
+
+        <button id="wisKnop">
+            Wis
+        </button>
+
+    </div>
+
+
+    <div id="melding"></div>
+
+</section>
+
+
+
+<!-- =========================
+     KLAAR
+========================= -->
+
+<section id="klaar">
+
+    <div class="klaar-kaart">
+
+        <h2>Klaar!</h2>
+
+        <div class="klaar-knoppen">
 
             <button
-                id="kiesWoordKnop"
-                class="menu-knop">
-                Kies het woord
+                id="opnieuwKnop"
+                class="klaar-knop">
+                Nog een keer
             </button>
 
             <button
-                class="menu-knop"
-                disabled>
-                Eerste letter
-            </button>
-
-            <button
-                class="menu-knop"
-                disabled>
-                Bouw het woord
+                id="menuKnop"
+                class="klaar-knop secundair">
+                Terug naar menu
             </button>
 
         </div>
 
-    </section>
+    </div>
 
+</section>
 
-    <!-- =====================
-         SPEL 1
-    ====================== -->
-
-    <section id="spel">
-
-        <h1>Kies het woord</h1>
-
-        <div id="voortgang"></div>
-
-        <div class="plaatje-vak">
-            <img id="plaatje" src="" alt="">
-        </div>
-
-        <div id="antwoorden"></div>
-
-        <div id="melding"></div>
-
-    </section>
-
-
-    <!-- =====================
-         EINDSCHERM
-    ====================== -->
-
-    <section id="klaar">
-
-        <div class="klaar-kaart">
-
-            <h2>Klaar!</h2>
-
-            <div class="klaar-knoppen">
-
-                <button
-                    id="opnieuwKnop"
-                    class="klaar-knop">
-                    Nog een keer
-                </button>
-
-                <button
-                    id="menuKnop"
-                    class="klaar-knop secundair">
-                    Terug naar menu
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
 
 </main>
 
@@ -435,7 +592,7 @@ h1 {
 <script>
 
 /* =========================
-   WOORDEN WEEK 1
+   WEEK 1
 ========================= */
 
 const woorden = [
@@ -504,14 +661,36 @@ const woorden = [
 
 
 /* =========================
+   BEGINLETTERS
+========================= */
+
+const beginLetters = [
+
+    ...new Set(
+
+        woorden.map(
+            item =>
+                item.woord.charAt(0)
+        )
+
+    )
+
+];
+
+
+/* =========================
    VARIABELEN
 ========================= */
+
+let spelType = "";
 
 let ronde = [];
 
 let nummer = 0;
 
 let geblokkeerd = false;
+
+let gekozenLetters = [];
 
 
 /* =========================
@@ -530,11 +709,29 @@ const klaar =
 const terugKnop =
     document.getElementById("terugKnop");
 
+const spelTitel =
+    document.getElementById("spelTitel");
+
+const instructie =
+    document.getElementById("instructie");
+
 const plaatje =
     document.getElementById("plaatje");
 
 const antwoorden =
     document.getElementById("antwoorden");
+
+const bouwGebied =
+    document.getElementById("bouwGebied");
+
+const woordVakken =
+    document.getElementById("woordVakken");
+
+const losseLetters =
+    document.getElementById("losseLetters");
+
+const wisKnop =
+    document.getElementById("wisKnop");
 
 const melding =
     document.getElementById("melding");
@@ -544,7 +741,7 @@ const voortgang =
 
 
 /* =========================
-   LIJST HUSSEN
+   HUSSEN
 ========================= */
 
 function mix(lijst) {
@@ -562,6 +759,7 @@ function mix(lijst) {
                 Math.random() * (i + 1)
             );
 
+
         [
             nieuw[i],
             nieuw[j]
@@ -577,18 +775,22 @@ function mix(lijst) {
 
 
 /* =========================
-   STARTMENU
+   MENU
 ========================= */
 
 function toonMenu() {
 
-    startMenu.style.display = "flex";
+    startMenu.style.display =
+        "flex";
 
-    spel.style.display = "none";
+    spel.style.display =
+        "none";
 
-    klaar.style.display = "none";
+    klaar.style.display =
+        "none";
 
-    terugKnop.style.display = "none";
+    terugKnop.style.display =
+        "none";
 
 }
 
@@ -597,19 +799,27 @@ function toonMenu() {
    SPEL STARTEN
 ========================= */
 
-function startSpel() {
+function startSpel(type) {
+
+    spelType = type;
 
     ronde = mix(woorden);
 
     nummer = 0;
 
-    startMenu.style.display = "none";
 
-    spel.style.display = "block";
+    startMenu.style.display =
+        "none";
 
-    klaar.style.display = "none";
+    klaar.style.display =
+        "none";
 
-    terugKnop.style.display = "block";
+    spel.style.display =
+        "block";
+
+    terugKnop.style.display =
+        "block";
+
 
     nieuweVraag();
 
@@ -624,45 +834,103 @@ function nieuweVraag() {
 
     geblokkeerd = false;
 
+    gekozenLetters = [];
+
+
     melding.textContent = "";
 
     melding.className = "";
 
+
+    antwoorden.innerHTML = "";
+
+    bouwGebied.style.display =
+        "none";
+
+
     const huidig =
         ronde[nummer];
+
 
     voortgang.textContent =
         `${nummer + 1} van ${ronde.length}`;
 
-    toonPlaatje(huidig);
-
-    maakAntwoorden(huidig);
-
-}
-
-
-/* =========================
-   PLAATJE
-========================= */
-
-function toonPlaatje(item) {
 
     plaatje.src =
-        item.afbeelding;
+        huidig.afbeelding;
+
 
     plaatje.alt =
-        `Plaatje van ${item.woord}`;
+        `Plaatje van ${huidig.woord}`;
+
+
+    if (spelType === "woord") {
+
+        spelTitel.textContent =
+            "Kies het woord";
+
+        instructie.textContent =
+            "Welk woord hoort bij het plaatje?";
+
+        antwoorden.style.display =
+            "grid";
+
+        maakWoordAntwoorden(
+            huidig
+        );
+
+    }
+
+
+    if (spelType === "letter") {
+
+        spelTitel.textContent =
+            "Eerste letter";
+
+        instructie.textContent =
+            "Met welke letter begint het woord?";
+
+        antwoorden.style.display =
+            "grid";
+
+        maakLetterAntwoorden(
+            huidig
+        );
+
+    }
+
+
+    if (spelType === "bouw") {
+
+        spelTitel.textContent =
+            "Bouw het woord";
+
+        instructie.textContent =
+            "Zet de letters in de goede volgorde.";
+
+        antwoorden.style.display =
+            "none";
+
+        bouwGebied.style.display =
+            "block";
+
+        maakBouwSpel(
+            huidig
+        );
+
+    }
 
 }
 
 
 /* =========================
-   ANTWOORDEN
+   SPEL 1
+   KIES HET WOORD
 ========================= */
 
-function maakAntwoorden(huidig) {
-
-    antwoorden.innerHTML = "";
+function maakWoordAntwoorden(
+    huidig
+) {
 
     const andereWoorden =
         mix(
@@ -691,32 +959,10 @@ function maakAntwoorden(huidig) {
     keuzes.forEach(
         woord => {
 
-            const knop =
-                document.createElement(
-                    "button"
-                );
-
-            knop.className =
-                "antwoord";
-
-            knop.textContent =
-                woord;
-
-            knop.addEventListener(
-                "click",
-                () => {
-
-                    controleer(
-                        knop,
-                        woord,
-                        huidig.woord
-                    );
-
-                }
-            );
-
-            antwoorden.appendChild(
-                knop
+            maakAntwoordKnop(
+                woord,
+                woord === huidig.woord,
+                false
             );
 
         }
@@ -726,13 +972,216 @@ function maakAntwoorden(huidig) {
 
 
 /* =========================
-   ANTWOORD CONTROLEREN
+   SPEL 2
+   EERSTE LETTER
 ========================= */
 
-function controleer(
+function maakLetterAntwoorden(
+    huidig
+) {
+
+    const goedeLetter =
+        huidig.woord.charAt(0);
+
+
+    const fouteLetters =
+        mix(
+
+            beginLetters.filter(
+                letter =>
+                    letter !== goedeLetter
+            )
+
+        ).slice(0, 2);
+
+
+    const keuzes =
+        mix([
+
+            goedeLetter,
+
+            ...fouteLetters
+
+        ]);
+
+
+    keuzes.forEach(
+        letter => {
+
+            maakAntwoordKnop(
+                letter,
+                letter === goedeLetter,
+                true
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================
+   ANTWOORDKNOP
+========================= */
+
+function maakAntwoordKnop(
+    tekst,
+    goed,
+    isLetter
+) {
+
+    const knop =
+        document.createElement(
+            "button"
+        );
+
+
+    knop.className =
+        "antwoord";
+
+
+    if (isLetter) {
+
+        knop.classList.add(
+            "letter-knop"
+        );
+
+    }
+
+
+    knop.textContent =
+        tekst;
+
+
+    knop.addEventListener(
+        "click",
+        () => {
+
+            controleer(
+                knop,
+                goed
+            );
+
+        }
+    );
+
+
+    antwoorden.appendChild(
+        knop
+    );
+
+}
+
+
+/* =========================
+   SPEL 3
+   BOUW HET WOORD
+========================= */
+
+function maakBouwSpel(
+    huidig
+) {
+
+    woordVakken.innerHTML = "";
+
+    losseLetters.innerHTML = "";
+
+
+    const letters =
+        huidig.woord.split("");
+
+
+    /* LEGE VAKKEN */
+
+    letters.forEach(
+        () => {
+
+            const vak =
+                document.createElement(
+                    "div"
+                );
+
+            vak.className =
+                "woord-vak";
+
+            woordVakken.appendChild(
+                vak
+            );
+
+        }
+    );
+
+
+    /*
+       Iedere letter krijgt een eigen
+       nummer. Daardoor werkt bijvoorbeeld
+       POP ook met twee keer de P.
+    */
+
+    const letterObjecten =
+        letters.map(
+            (letter, nummer) => {
+
+                return {
+
+                    letter: letter,
+
+                    nummer: nummer
+
+                };
+
+            }
+        );
+
+
+    mix(letterObjecten)
+        .forEach(
+            item => {
+
+                const knop =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                knop.className =
+                    "losse-letter";
+
+
+                knop.textContent =
+                    item.letter;
+
+
+                knop.addEventListener(
+                    "click",
+                    () => {
+
+                        kiesLetter(
+                            knop,
+                            item.letter
+                        );
+
+                    }
+                );
+
+
+                losseLetters.appendChild(
+                    knop
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================
+   LETTER KIEZEN
+========================= */
+
+function kiesLetter(
     knop,
-    gekozen,
-    goedWoord
+    letter
 ) {
 
     if (geblokkeerd) {
@@ -740,9 +1189,197 @@ function controleer(
     }
 
 
-    /* FOUT */
+    if (
+        knop.classList.contains(
+            "gebruikt"
+        )
+    ) {
 
-    if (gekozen !== goedWoord) {
+        return;
+
+    }
+
+
+    gekozenLetters.push({
+
+        letter: letter,
+
+        knop: knop
+
+    });
+
+
+    knop.classList.add(
+        "gebruikt"
+    );
+
+
+    updateWoordVakken();
+
+
+    const huidig =
+        ronde[nummer];
+
+
+    if (
+        gekozenLetters.length ===
+        huidig.woord.length
+    ) {
+
+        controleerGebouwdWoord();
+
+    }
+
+}
+
+
+/* =========================
+   VAKKEN BIJWERKEN
+========================= */
+
+function updateWoordVakken() {
+
+    const vakken =
+        woordVakken.querySelectorAll(
+            ".woord-vak"
+        );
+
+
+    vakken.forEach(
+        (vak, index) => {
+
+            if (
+                gekozenLetters[index]
+            ) {
+
+                vak.textContent =
+                    gekozenLetters[index]
+                        .letter;
+
+            }
+
+            else {
+
+                vak.textContent =
+                    "";
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================
+   GEBOUWD WOORD CONTROLEREN
+========================= */
+
+function controleerGebouwdWoord() {
+
+    const huidig =
+        ronde[nummer];
+
+
+    const gemaakt =
+        gekozenLetters
+            .map(
+                item =>
+                    item.letter
+            )
+            .join("");
+
+
+    if (
+        gemaakt ===
+        huidig.woord
+    ) {
+
+        geblokkeerd = true;
+
+
+        melding.textContent =
+            "Goed gedaan!";
+
+
+        melding.className =
+            "goed";
+
+
+        setTimeout(
+            volgendeVraag,
+            700
+        );
+
+    }
+
+    else {
+
+        melding.textContent =
+            "Probeer het nog eens.";
+
+
+        melding.className =
+            "probeer";
+
+
+        setTimeout(
+            wisLetters,
+            800
+        );
+
+    }
+
+}
+
+
+/* =========================
+   LETTERS WISSEN
+========================= */
+
+function wisLetters() {
+
+    gekozenLetters.forEach(
+        item => {
+
+            item.knop.classList.remove(
+                "gebruikt"
+            );
+
+        }
+    );
+
+
+    gekozenLetters = [];
+
+
+    updateWoordVakken();
+
+
+    melding.textContent =
+        "";
+
+    melding.className =
+        "";
+
+}
+
+
+/* =========================
+   SPEL 1 EN 2 CONTROLEREN
+========================= */
+
+function controleer(
+    knop,
+    goed
+) {
+
+    if (geblokkeerd) {
+        return;
+    }
+
+
+    if (!goed) {
 
         knop.classList.add(
             "fout"
@@ -750,48 +1387,33 @@ function controleer(
 
         knop.disabled = true;
 
+
         melding.textContent =
             "Probeer het nog eens.";
+
 
         melding.className =
             "probeer";
 
+
         return;
+
     }
 
 
-    /* GOED */
-
     geblokkeerd = true;
+
 
     melding.textContent =
         "Goed gedaan!";
+
 
     melding.className =
         "goed";
 
 
     setTimeout(
-        () => {
-
-            nummer++;
-
-            if (
-                nummer >=
-                ronde.length
-            ) {
-
-                eindeSpel();
-
-            }
-
-            else {
-
-                nieuweVraag();
-
-            }
-
-        },
+        volgendeVraag,
         700
     );
 
@@ -799,16 +1421,46 @@ function controleer(
 
 
 /* =========================
-   EINDE
+   VOLGENDE VRAAG
+========================= */
+
+function volgendeVraag() {
+
+    nummer++;
+
+
+    if (
+        nummer >=
+        ronde.length
+    ) {
+
+        eindeSpel();
+
+    }
+
+    else {
+
+        nieuweVraag();
+
+    }
+
+}
+
+
+/* =========================
+   EINDE SPEL
 ========================= */
 
 function eindeSpel() {
 
-    spel.style.display = "none";
+    spel.style.display =
+        "none";
 
-    klaar.style.display = "flex";
+    klaar.style.display =
+        "flex";
 
-    terugKnop.style.display = "none";
+    terugKnop.style.display =
+        "none";
 
 }
 
@@ -817,15 +1469,71 @@ function eindeSpel() {
    KNOPPEN
 ========================= */
 
+
+/* SPEL 1 */
+
 document
     .getElementById(
         "kiesWoordKnop"
     )
     .addEventListener(
         "click",
-        startSpel
+        () => {
+
+            startSpel(
+                "woord"
+            );
+
+        }
     );
 
+
+/* SPEL 2 */
+
+document
+    .getElementById(
+        "eersteLetterKnop"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            startSpel(
+                "letter"
+            );
+
+        }
+    );
+
+
+/* SPEL 3 */
+
+document
+    .getElementById(
+        "bouwWoordKnop"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            startSpel(
+                "bouw"
+            );
+
+        }
+    );
+
+
+/* WIS */
+
+wisKnop
+    .addEventListener(
+        "click",
+        wisLetters
+    );
+
+
+/* TERUG */
 
 terugKnop
     .addEventListener(
@@ -834,15 +1542,25 @@ terugKnop
     );
 
 
+/* NOG EEN KEER */
+
 document
     .getElementById(
         "opnieuwKnop"
     )
     .addEventListener(
         "click",
-        startSpel
+        () => {
+
+            startSpel(
+                spelType
+            );
+
+        }
     );
 
+
+/* TERUG NAAR MENU */
 
 document
     .getElementById(
