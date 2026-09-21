@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
 <title>Lezen</title>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -26,7 +28,10 @@ main {
     text-align: center;
 }
 
-/* STARTMENU */
+
+/* =========================
+   STARTMENU
+========================= */
 
 #startMenu {
     min-height: 85vh;
@@ -45,12 +50,17 @@ main {
 .menu-knop {
     min-height: 170px;
     padding: 20px;
+
     border: 4px solid #333;
     border-radius: 26px;
+
     background: white;
+
     font-size: 28px;
     font-weight: bold;
+
     cursor: pointer;
+
     box-shadow: 0 8px 0 #c8b970;
 }
 
@@ -68,13 +78,23 @@ main {
     cursor: default;
 }
 
-/* STATUS */
+/* Bouw de zin standaard verbergen */
+
+#bouwZinKnop {
+    display: none;
+}
+
+
+/* =========================
+   STATUS
+========================= */
 
 #status {
     position: absolute;
     top: 20px;
     left: 0;
     right: 0;
+
     font-size: 18px;
     font-weight: bold;
 }
@@ -83,25 +103,39 @@ main {
     color: #a52a2a;
 }
 
-/* TERUG */
+
+/* =========================
+   TERUG
+========================= */
 
 .terug-knop {
     display: none;
+
     position: fixed;
     top: 22px;
     left: 22px;
+
     padding: 13px 20px;
+
     border: 3px solid #333;
     border-radius: 16px;
+
     background: white;
+
     font-size: 20px;
     font-weight: bold;
+
     cursor: pointer;
+
     box-shadow: 0 5px 0 #bbb;
+
     z-index: 10;
 }
 
-/* SPEL */
+
+/* =========================
+   SPEL
+========================= */
 
 #spel {
     display: none;
@@ -124,45 +158,66 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* PLAATJE */
+
+/* =========================
+   PLAATJE
+========================= */
 
 .plaatje-vak {
     width: min(540px, 95%);
     height: 320px;
+
     margin: 0 auto 32px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     background: white;
+
     border: 4px solid #333;
     border-radius: 25px;
+
     overflow: hidden;
 }
 
 #plaatje {
     width: 100%;
     height: 100%;
+
     object-fit: contain;
+
     padding: 12px;
 }
 
-/* ANTWOORDEN */
+
+/* =========================
+   ANTWOORDEN
+========================= */
 
 #antwoorden {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 18px;
+
     max-width: 750px;
+
     margin: 0 auto;
 }
 
 .antwoord {
     min-height: 90px;
+
     border: 3px solid #333;
     border-radius: 20px;
+
     background: white;
+
     font-size: 32px;
     font-weight: bold;
+
     cursor: pointer;
 }
 
@@ -175,7 +230,10 @@ h1 {
     font-size: 46px;
 }
 
-/* BOUW HET WOORD */
+
+/* =========================
+   BOUW HET WOORD
+========================= */
 
 #bouwGebied {
     display: none;
@@ -183,38 +241,53 @@ h1 {
 
 #woordVakken {
     display: flex;
+
     justify-content: center;
+
     gap: 12px;
+
     margin-bottom: 30px;
 }
 
 .woord-vak {
     width: 72px;
     height: 78px;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     border-bottom: 6px solid #333;
+
     font-size: 44px;
     font-weight: bold;
 }
 
 #losseLetters {
     display: flex;
+
     justify-content: center;
+
     flex-wrap: wrap;
+
     gap: 16px;
 }
 
 .losse-letter {
     width: 82px;
     height: 82px;
+
     border: 3px solid #333;
     border-radius: 20px;
+
     background: white;
+
     font-size: 42px;
     font-weight: bold;
+
     cursor: pointer;
+
     box-shadow: 0 6px 0 #c8b970;
 }
 
@@ -222,7 +295,10 @@ h1 {
     visibility: hidden;
 }
 
-/* BOUW DE ZIN */
+
+/* =========================
+   BOUW DE ZIN
+========================= */
 
 #zinGebied {
     display: none;
@@ -230,43 +306,63 @@ h1 {
 
 #zinVakken {
     display: flex;
+
     justify-content: center;
+
     flex-wrap: wrap;
+
     gap: 12px;
+
     margin: 25px auto 35px;
 }
 
 .zin-vak {
     min-width: 105px;
     min-height: 68px;
+
     padding: 8px 14px;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     border-bottom: 5px solid #333;
+
     font-size: 30px;
     font-weight: bold;
 }
 
 #losseWoorden {
     display: flex;
+
     justify-content: center;
+
     flex-wrap: wrap;
+
     gap: 16px;
+
     max-width: 800px;
+
     margin: 0 auto;
 }
 
 .los-woord {
     min-width: 100px;
     min-height: 68px;
+
     padding: 10px 18px;
+
     border: 3px solid #333;
     border-radius: 18px;
+
     background: white;
+
     font-size: 28px;
     font-weight: bold;
+
     cursor: pointer;
+
     box-shadow: 0 6px 0 #c8b970;
 }
 
@@ -274,25 +370,38 @@ h1 {
     visibility: hidden;
 }
 
-/* WISKNOP */
+
+/* =========================
+   WISSEN
+========================= */
 
 #wisKnop,
 #wisZinKnop {
     margin-top: 25px;
+
     padding: 12px 22px;
+
     border: 3px solid #333;
     border-radius: 15px;
+
     background: white;
+
     font-size: 19px;
     font-weight: bold;
+
     cursor: pointer;
 }
 
-/* MELDING */
+
+/* =========================
+   MELDING
+========================= */
 
 #melding {
     min-height: 45px;
+
     margin-top: 24px;
+
     font-size: 27px;
     font-weight: bold;
 }
@@ -305,20 +414,28 @@ h1 {
     color: #a05400;
 }
 
-/* KLAAR */
+
+/* =========================
+   KLAAR
+========================= */
 
 #klaar {
     display: none;
+
     min-height: 80vh;
+
     align-items: center;
     justify-content: center;
 }
 
 .klaar-kaart {
     width: min(500px, 95%);
+
     background: white;
+
     border: 4px solid #333;
     border-radius: 28px;
+
     padding: 45px 30px;
 }
 
@@ -329,18 +446,25 @@ h1 {
 
 .klaar-knoppen {
     display: flex;
+
     justify-content: center;
+
     flex-wrap: wrap;
+
     gap: 15px;
 }
 
 .klaar-knop {
     padding: 17px 25px;
+
     border: 3px solid #333;
     border-radius: 18px;
+
     background: #fff0a8;
+
     font-size: 22px;
     font-weight: bold;
+
     cursor: pointer;
 }
 
@@ -348,7 +472,10 @@ h1 {
     background: white;
 }
 
-/* MOBIEL */
+
+/* =========================
+   MOBIEL
+========================= */
 
 @media (max-width: 700px) {
 
@@ -380,24 +507,28 @@ h1 {
     .woord-vak {
         width: 58px;
         height: 65px;
+
         font-size: 36px;
     }
 
     .losse-letter {
         width: 70px;
         height: 70px;
+
         font-size: 36px;
     }
 
     .zin-vak {
         min-width: 82px;
         min-height: 58px;
+
         font-size: 24px;
     }
 
     .los-woord {
         min-width: 82px;
         min-height: 58px;
+
         font-size: 24px;
     }
 
@@ -405,17 +536,29 @@ h1 {
         top: 14px;
         left: 14px;
     }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
-<button id="terugKnop" class="terug-knop">
+
+<button
+    id="terugKnop"
+    class="terug-knop">
     ← Terug
 </button>
 
+
 <main>
+
+
+<!-- =========================
+     STARTMENU
+========================= -->
 
 <section id="startMenu">
 
@@ -425,53 +568,82 @@ h1 {
 
     <div class="menu-knoppen">
 
+
         <button
             id="kiesWoordKnop"
             class="menu-knop"
             disabled>
+
             Kies het woord
+
         </button>
+
 
         <button
             id="eersteLetterKnop"
             class="menu-knop"
             disabled>
+
             Eerste letter
+
         </button>
+
 
         <button
             id="bouwWoordKnop"
             class="menu-knop"
             disabled>
+
             Bouw het woord
+
         </button>
+
 
         <button
             id="bouwZinKnop"
             class="menu-knop"
             disabled>
+
             Bouw de zin
+
         </button>
+
 
     </div>
 
 </section>
 
 
+<!-- =========================
+     SPEL
+========================= -->
+
 <section id="spel">
+
 
     <h1 id="spelTitel"></h1>
 
+
     <div id="instructie"></div>
+
 
     <div id="voortgang"></div>
 
+
     <div class="plaatje-vak">
-        <img id="plaatje" src="" alt="">
+
+        <img
+            id="plaatje"
+            src=""
+            alt="">
+
     </div>
+
 
     <div id="antwoorden"></div>
 
+
+    <!-- BOUW HET WOORD -->
 
     <div id="bouwGebied">
 
@@ -486,6 +658,8 @@ h1 {
     </div>
 
 
+    <!-- BOUW DE ZIN -->
+
     <div id="zinGebied">
 
         <div id="zinVakken"></div>
@@ -498,30 +672,45 @@ h1 {
 
     </div>
 
+
     <div id="melding"></div>
+
 
 </section>
 
+
+<!-- =========================
+     KLAAR
+========================= -->
 
 <section id="klaar">
 
     <div class="klaar-kaart">
 
+
         <h2>Klaar!</h2>
 
+
         <div class="klaar-knoppen">
+
 
             <button
                 id="opnieuwKnop"
                 class="klaar-knop">
+
                 Nog een keer
+
             </button>
+
 
             <button
                 id="menuKnop"
                 class="klaar-knop secundair">
+
                 Terug naar menu
+
             </button>
+
 
         </div>
 
@@ -529,29 +718,39 @@ h1 {
 
 </section>
 
+
 </main>
 
 
 <script>
+
 
 /* =========================
    VARIABELEN
 ========================= */
 
 let actieveWeek = 0;
+
 let weekMap = "";
 
 let woorden = [];
+
 let beginLetters = [];
+
 let zinnen = [];
 
+
 let spelType = "";
+
 let ronde = [];
+
 let nummer = 0;
 
 let geblokkeerd = false;
 
+
 let gekozenLetters = [];
+
 let gekozenWoorden = [];
 
 
@@ -560,76 +759,147 @@ let gekozenWoorden = [];
 ========================= */
 
 const startMenu =
-    document.getElementById("startMenu");
+    document.getElementById(
+        "startMenu"
+    );
+
 
 const spel =
-    document.getElementById("spel");
+    document.getElementById(
+        "spel"
+    );
+
 
 const klaar =
-    document.getElementById("klaar");
+    document.getElementById(
+        "klaar"
+    );
+
 
 const terugKnop =
-    document.getElementById("terugKnop");
+    document.getElementById(
+        "terugKnop"
+    );
+
 
 const spelTitel =
-    document.getElementById("spelTitel");
+    document.getElementById(
+        "spelTitel"
+    );
+
 
 const instructie =
-    document.getElementById("instructie");
+    document.getElementById(
+        "instructie"
+    );
+
 
 const voortgang =
-    document.getElementById("voortgang");
+    document.getElementById(
+        "voortgang"
+    );
+
 
 const plaatje =
-    document.getElementById("plaatje");
+    document.getElementById(
+        "plaatje"
+    );
+
 
 const plaatjeVak =
-    document.querySelector(".plaatje-vak");
+    document.querySelector(
+        ".plaatje-vak"
+    );
+
 
 const antwoorden =
-    document.getElementById("antwoorden");
+    document.getElementById(
+        "antwoorden"
+    );
+
 
 const bouwGebied =
-    document.getElementById("bouwGebied");
+    document.getElementById(
+        "bouwGebied"
+    );
+
 
 const woordVakken =
-    document.getElementById("woordVakken");
+    document.getElementById(
+        "woordVakken"
+    );
+
 
 const losseLetters =
-    document.getElementById("losseLetters");
+    document.getElementById(
+        "losseLetters"
+    );
+
 
 const wisKnop =
-    document.getElementById("wisKnop");
+    document.getElementById(
+        "wisKnop"
+    );
+
 
 const zinGebied =
-    document.getElementById("zinGebied");
+    document.getElementById(
+        "zinGebied"
+    );
+
 
 const zinVakken =
-    document.getElementById("zinVakken");
+    document.getElementById(
+        "zinVakken"
+    );
+
 
 const losseWoorden =
-    document.getElementById("losseWoorden");
+    document.getElementById(
+        "losseWoorden"
+    );
+
 
 const wisZinKnop =
-    document.getElementById("wisZinKnop");
+    document.getElementById(
+        "wisZinKnop"
+    );
+
 
 const melding =
-    document.getElementById("melding");
+    document.getElementById(
+        "melding"
+    );
+
 
 const status =
-    document.getElementById("status");
+    document.getElementById(
+        "status"
+    );
+
 
 const kiesWoordKnop =
-    document.getElementById("kiesWoordKnop");
+    document.getElementById(
+        "kiesWoordKnop"
+    );
+
 
 const eersteLetterKnop =
-    document.getElementById("eersteLetterKnop");
+    document.getElementById(
+        "eersteLetterKnop"
+    );
+
 
 const bouwWoordKnop =
-    document.getElementById("bouwWoordKnop");
+    document.getElementById(
+        "bouwWoordKnop"
+    );
+
 
 const bouwZinKnop =
-    document.getElementById("bouwZinKnop");
+    document.getElementById(
+        "bouwZinKnop"
+    );
 
 
 /* =========================
@@ -640,128 +910,249 @@ async function laadActieveWeek() {
 
     try {
 
-        const tijd = Date.now();
+
+        const tijd =
+            Date.now();
+
+
+        /* ACTIEVE WEEK */
 
         const actiefResponse =
             await fetch(
                 `weken/actief.json?v=${tijd}`
             );
 
+
         if (!actiefResponse.ok) {
+
             throw new Error(
                 "actief.json niet gevonden"
             );
+
         }
+
 
         const actief =
             await actiefResponse.json();
 
+
         actieveWeek =
-            Number(actief.week);
+            Number(
+                actief.week
+            );
+
 
         weekMap =
             `week${String(actieveWeek).padStart(2, "0")}`;
 
 
-        /* WOORDEN LADEN */
+
+        /* =========================
+           WOORDEN LADEN
+        ========================= */
+
 
         const woordenResponse =
             await fetch(
                 `weken/${weekMap}/woorden.json?v=${tijd}`
             );
 
+
         if (!woordenResponse.ok) {
+
             throw new Error(
                 "woorden.json niet gevonden"
             );
+
         }
+
 
         const lijst =
             await woordenResponse.json();
 
+
         woorden =
             lijst.map(
+
                 woord => ({
+
                     woord: woord,
+
                     afbeelding:
                         `weken/${weekMap}/${woord}.png`
+
                 })
+
             );
 
 
         beginLetters = [
+
             ...new Set(
+
                 woorden.map(
+
                     item =>
                         item.woord.charAt(0)
+
                 )
+
             )
+
         ];
 
 
-        /* ZINNEN LADEN */
+
+        /* =========================
+           ZINNEN LADEN
+        ========================= */
+
 
         zinnen = [];
 
+
         try {
+
 
             const zinnenResponse =
                 await fetch(
+
                     `weken/${weekMap}/zinnen.json?v=${tijd}`
+
                 );
 
+
             if (zinnenResponse.ok) {
+
 
                 const zinnenLijst =
                     await zinnenResponse.json();
 
-                if (Array.isArray(zinnenLijst)) {
+
+                if (
+                    Array.isArray(
+                        zinnenLijst
+                    )
+                ) {
+
 
                     zinnen =
+
                         zinnenLijst
+
                             .filter(
+
                                 zin =>
-                                    typeof zin === "string" &&
-                                    zin.trim().length > 0
+
+                                    typeof zin ===
+                                        "string"
+
+                                    &&
+
+                                    zin.trim().length >
+                                        0
+
                             )
+
                             .map(
-                                zin => zin.trim()
+
+                                zin =>
+                                    zin.trim()
+
                             );
 
                 }
 
             }
 
-        } catch (fout) {
+
+        }
+
+        catch (fout) {
+
 
             console.log(
                 "Geen zinnen gevonden."
             );
 
+
         }
 
 
-        status.textContent = "";
 
-        kiesWoordKnop.disabled = false;
-        eersteLetterKnop.disabled = false;
-        bouwWoordKnop.disabled = false;
+        /* =========================
+           KNOPPEN ACTIVEREN
+        ========================= */
 
-        bouwZinKnop.disabled =
-            zinnen.length === 0;
+
+        status.textContent =
+            "";
+
+
+        kiesWoordKnop.disabled =
+            false;
+
+
+        eersteLetterKnop.disabled =
+            false;
+
+
+        bouwWoordKnop.disabled =
+            false;
+
+
+
+        /* Alleen Bouw de zin tonen
+           als er zinnen zijn */
+
+
+        if (
+            zinnen.length > 0
+        ) {
+
+
+            bouwZinKnop.style.display =
+                "block";
+
+
+            bouwZinKnop.disabled =
+                false;
+
+
+        }
+
+        else {
+
+
+            bouwZinKnop.style.display =
+                "none";
+
+
+            bouwZinKnop.disabled =
+                true;
+
+
+        }
+
 
     }
 
     catch (fout) {
 
-        console.error(fout);
+
+        console.error(
+            fout
+        );
+
 
         status.textContent =
             "De woorden konden niet worden geladen.";
 
+
         status.classList.add(
             "foutmelding"
         );
+
 
     }
 
@@ -774,30 +1165,52 @@ async function laadActieveWeek() {
 
 function mix(lijst) {
 
-    const nieuw = [...lijst];
+
+    const nieuw =
+        [...lijst];
+
 
     for (
-        let i = nieuw.length - 1;
+
+        let i =
+            nieuw.length - 1;
+
         i > 0;
+
         i--
+
     ) {
 
+
         const j =
+
             Math.floor(
-                Math.random() * (i + 1)
+
+                Math.random()
+                *
+                (i + 1)
+
             );
 
+
         [
+
             nieuw[i],
             nieuw[j]
+
         ] = [
+
             nieuw[j],
             nieuw[i]
+
         ];
+
 
     }
 
+
     return nieuw;
+
 }
 
 
@@ -807,17 +1220,22 @@ function mix(lijst) {
 
 function toonMenu() {
 
+
     startMenu.style.display =
         "flex";
+
 
     spel.style.display =
         "none";
 
+
     klaar.style.display =
         "none";
 
+
     terugKnop.style.display =
         "none";
+
 
 }
 
@@ -828,29 +1246,58 @@ function toonMenu() {
 
 function startSpel(type) {
 
-    spelType = type;
 
-    if (type === "zin") {
-        ronde = mix(zinnen);
-    } else {
-        ronde = mix(woorden);
+    spelType =
+        type;
+
+
+    if (
+        type === "zin"
+    ) {
+
+
+        ronde =
+            mix(
+                zinnen
+            );
+
+
     }
 
-    nummer = 0;
+    else {
+
+
+        ronde =
+            mix(
+                woorden
+            );
+
+
+    }
+
+
+    nummer =
+        0;
+
 
     startMenu.style.display =
         "none";
 
+
     klaar.style.display =
         "none";
+
 
     spel.style.display =
         "block";
 
+
     terugKnop.style.display =
         "block";
 
+
     nieuweVraag();
+
 }
 
 
@@ -860,123 +1307,201 @@ function startSpel(type) {
 
 function nieuweVraag() {
 
-    geblokkeerd = false;
 
-    gekozenLetters = [];
-    gekozenWoorden = [];
+    geblokkeerd =
+        false;
 
-    melding.textContent = "";
-    melding.className = "";
 
-    antwoorden.innerHTML = "";
+    gekozenLetters =
+        [];
+
+
+    gekozenWoorden =
+        [];
+
+
+    melding.textContent =
+        "";
+
+
+    melding.className =
+        "";
+
+
+    antwoorden.innerHTML =
+        "";
+
 
     bouwGebied.style.display =
         "none";
 
+
     zinGebied.style.display =
         "none";
+
 
     const huidig =
         ronde[nummer];
 
+
     voortgang.textContent =
+
         `${nummer + 1} van ${ronde.length}`;
 
 
-    /* BOUW DE ZIN */
 
-    if (spelType === "zin") {
+    /* =========================
+       BOUW DE ZIN
+    ========================= */
+
+
+    if (
+        spelType === "zin"
+    ) {
+
 
         plaatjeVak.style.display =
             "none";
 
+
         antwoorden.style.display =
             "none";
+
 
         spelTitel.textContent =
             "Bouw de zin";
 
+
         instructie.textContent =
             "Zet de woorden in de goede volgorde.";
+
 
         zinGebied.style.display =
             "block";
 
-        maakZinSpel(huidig);
+
+        maakZinSpel(
+            huidig
+        );
+
 
         return;
+
     }
 
 
-    /* BIJ WOORDSPELLEN WEL PLAATJE */
+
+    /* =========================
+       PLAATJE
+    ========================= */
+
 
     plaatjeVak.style.display =
         "flex";
 
+
     plaatje.src =
         huidig.afbeelding;
+
 
     plaatje.alt =
         `Plaatje van ${huidig.woord}`;
 
 
-    /* KIES HET WOORD */
 
-    if (spelType === "woord") {
+    /* =========================
+       KIES HET WOORD
+    ========================= */
+
+
+    if (
+        spelType === "woord"
+    ) {
+
 
         spelTitel.textContent =
             "Kies het woord";
 
+
         instructie.textContent =
             "Welk woord hoort bij het plaatje?";
 
+
         antwoorden.style.display =
             "grid";
+
 
         maakWoordAntwoorden(
             huidig
         );
+
+
     }
 
 
-    /* EERSTE LETTER */
 
-    if (spelType === "letter") {
+    /* =========================
+       EERSTE LETTER
+    ========================= */
+
+
+    if (
+        spelType === "letter"
+    ) {
+
 
         spelTitel.textContent =
             "Eerste letter";
 
+
         instructie.textContent =
             "Met welke letter begint het woord?";
+
 
         antwoorden.style.display =
             "grid";
 
+
         maakLetterAntwoorden(
             huidig
         );
+
+
     }
 
 
-    /* BOUW HET WOORD */
 
-    if (spelType === "bouw") {
+    /* =========================
+       BOUW HET WOORD
+    ========================= */
+
+
+    if (
+        spelType === "bouw"
+    ) {
+
 
         spelTitel.textContent =
             "Bouw het woord";
 
+
         instructie.textContent =
             "Zet de letters in de goede volgorde.";
+
 
         antwoorden.style.display =
             "none";
 
+
         bouwGebied.style.display =
             "block";
+
 
         maakBouwSpel(
             huidig
         );
+
+
     }
 
 }
@@ -986,36 +1511,67 @@ function nieuweVraag() {
    KIES HET WOORD
 ========================= */
 
-function maakWoordAntwoorden(huidig) {
+function maakWoordAntwoorden(
+    huidig
+) {
+
 
     const andere =
+
         mix(
+
             woorden.filter(
+
                 item =>
+
                     item.woord !==
                     huidig.woord
+
             )
-        ).slice(0, 2);
+
+        ).slice(
+            0,
+            2
+        );
+
 
     const keuzes =
+
         mix([
+
             huidig.woord,
+
             ...andere.map(
-                item => item.woord
+
+                item =>
+                    item.woord
+
             )
+
         ]);
 
+
     keuzes.forEach(
+
         woord => {
 
+
             maakAntwoordKnop(
+
                 woord,
-                woord === huidig.woord,
+
+                woord ===
+                    huidig.woord,
+
                 false
+
             );
 
+
         }
+
     );
+
 }
 
 
@@ -1023,36 +1579,65 @@ function maakWoordAntwoorden(huidig) {
    EERSTE LETTER
 ========================= */
 
-function maakLetterAntwoorden(huidig) {
+function maakLetterAntwoorden(
+    huidig
+) {
+
 
     const goed =
         huidig.woord.charAt(0);
 
+
     const fout =
+
         mix(
+
             beginLetters.filter(
+
                 letter =>
-                    letter !== goed
+
+                    letter !==
+                    goed
+
             )
-        ).slice(0, 2);
+
+        ).slice(
+            0,
+            2
+        );
+
 
     const keuzes =
+
         mix([
+
             goed,
+
             ...fout
+
         ]);
 
+
     keuzes.forEach(
+
         letter => {
 
+
             maakAntwoordKnop(
+
                 letter,
+
                 letter === goed,
+
                 true
+
             );
 
+
         }
+
     );
+
 }
 
 
@@ -1061,86 +1646,141 @@ function maakLetterAntwoorden(huidig) {
 ========================= */
 
 function maakAntwoordKnop(
+
     tekst,
+
     goed,
+
     isLetter
+
 ) {
 
+
     const knop =
+
         document.createElement(
             "button"
         );
 
+
     knop.className =
         "antwoord";
 
-    if (isLetter) {
+
+    if (
+        isLetter
+    ) {
+
+
         knop.classList.add(
             "letter-knop"
         );
+
+
     }
+
 
     knop.textContent =
         tekst;
 
+
     knop.addEventListener(
+
         "click",
+
         () => {
+
+
             controleer(
+
                 knop,
+
                 goed
+
             );
+
+
         }
+
     );
+
 
     antwoorden.appendChild(
         knop
     );
+
 }
 
 
 /* =========================
-   CONTROLEREN ANTWOORD
+   CONTROLEREN
 ========================= */
 
 function controleer(
+
     knop,
+
     goed
+
 ) {
 
-    if (geblokkeerd) {
+
+    if (
+        geblokkeerd
+    ) {
+
         return;
+
     }
 
-    if (!goed) {
+
+    if (
+        !goed
+    ) {
+
 
         knop.classList.add(
             "fout"
         );
 
-        knop.disabled = true;
+
+        knop.disabled =
+            true;
+
 
         melding.textContent =
             "Probeer het nog eens.";
 
+
         melding.className =
             "probeer";
 
+
         return;
+
     }
 
-    geblokkeerd = true;
+
+    geblokkeerd =
+        true;
+
 
     melding.textContent =
         "Goed gedaan!";
 
+
     melding.className =
         "goed";
 
+
     setTimeout(
+
         volgendeVraag,
+
         700
+
     );
+
 }
 
 
@@ -1148,68 +1788,114 @@ function controleer(
    BOUW HET WOORD
 ========================= */
 
-function maakBouwSpel(huidig) {
+function maakBouwSpel(
+    huidig
+) {
 
-    woordVakken.innerHTML = "";
-    losseLetters.innerHTML = "";
+
+    woordVakken.innerHTML =
+        "";
+
+
+    losseLetters.innerHTML =
+        "";
+
 
     const letters =
         huidig.woord.split("");
 
+
     letters.forEach(
+
         () => {
 
+
             const vak =
+
                 document.createElement(
                     "div"
                 );
 
+
             vak.className =
                 "woord-vak";
+
 
             woordVakken.appendChild(
                 vak
             );
+
+
         }
+
     );
 
+
     const losse =
+
         letters.map(
+
             (letter, id) => ({
+
                 letter,
+
                 id
+
             })
+
         );
 
+
     mix(losse).forEach(
+
         item => {
 
+
             const knop =
+
                 document.createElement(
                     "button"
                 );
 
+
             knop.className =
                 "losse-letter";
+
 
             knop.textContent =
                 item.letter;
 
+
             knop.addEventListener(
+
                 "click",
+
                 () => {
+
+
                     kiesLetter(
+
                         knop,
+
                         item.letter
+
                     );
+
+
                 }
+
             );
+
 
             losseLetters.appendChild(
                 knop
             );
+
+
         }
+
     );
+
 }
 
 
@@ -1218,42 +1904,70 @@ function maakBouwSpel(huidig) {
 ========================= */
 
 function kiesLetter(
+
     knop,
+
     letter
+
 ) {
 
-    if (geblokkeerd) {
-        return;
-    }
 
     if (
+        geblokkeerd
+    ) {
+
+        return;
+
+    }
+
+
+    if (
+
         knop.classList.contains(
             "gebruikt"
         )
+
     ) {
+
         return;
+
     }
 
+
     gekozenLetters.push({
+
         letter,
+
         knop
+
     });
+
 
     knop.classList.add(
         "gebruikt"
     );
 
+
     updateWoordVakken();
+
 
     const huidig =
         ronde[nummer];
 
+
     if (
+
         gekozenLetters.length ===
         huidig.woord.length
+
     ) {
+
+
         controleerGebouwdWoord();
+
+
     }
+
 }
 
 
@@ -1263,21 +1977,32 @@ function kiesLetter(
 
 function updateWoordVakken() {
 
+
     const vakken =
+
         woordVakken.querySelectorAll(
             ".woord-vak"
         );
 
+
     vakken.forEach(
+
         (vak, index) => {
 
+
             vak.textContent =
+
                 gekozenLetters[index]
-                ? gekozenLetters[index].letter
-                : "";
+
+                    ? gekozenLetters[index].letter
+
+                    : "";
+
 
         }
+
     );
+
 }
 
 
@@ -1287,47 +2012,78 @@ function updateWoordVakken() {
 
 function controleerGebouwdWoord() {
 
+
     const huidig =
         ronde[nummer];
 
+
     const gemaakt =
+
         gekozenLetters
+
             .map(
-                item => item.letter
+
+                item =>
+                    item.letter
+
             )
+
             .join("");
 
+
     if (
+
         gemaakt ===
         huidig.woord
+
     ) {
 
-        geblokkeerd = true;
+
+        geblokkeerd =
+            true;
+
 
         melding.textContent =
             "Goed gedaan!";
 
+
         melding.className =
             "goed";
 
+
         setTimeout(
+
             volgendeVraag,
+
             700
+
         );
 
-    } else {
+
+    }
+
+    else {
+
 
         melding.textContent =
             "Probeer het nog eens.";
 
+
         melding.className =
             "probeer";
 
+
         setTimeout(
+
             wisLetters,
+
             800
+
         );
+
+
     }
+
 }
 
 
@@ -1337,22 +2093,36 @@ function controleerGebouwdWoord() {
 
 function wisLetters() {
 
+
     gekozenLetters.forEach(
+
         item => {
+
 
             item.knop.classList.remove(
                 "gebruikt"
             );
 
+
         }
+
     );
 
-    gekozenLetters = [];
+
+    gekozenLetters =
+        [];
+
 
     updateWoordVakken();
 
-    melding.textContent = "";
-    melding.className = "";
+
+    melding.textContent =
+        "";
+
+
+    melding.className =
+        "";
+
 }
 
 
@@ -1360,149 +2130,258 @@ function wisLetters() {
    BOUW DE ZIN
 ========================= */
 
-function maakZinSpel(zin) {
+function maakZinSpel(
+    zin
+) {
 
-    zinVakken.innerHTML = "";
-    losseWoorden.innerHTML = "";
+
+    zinVakken.innerHTML =
+        "";
+
+
+    losseWoorden.innerHTML =
+        "";
+
 
     const woordenInZin =
-        zin.trim().split(/\s+/);
+
+        zin
+
+            .trim()
+
+            .split(/\s+/);
+
+
 
     woordenInZin.forEach(
+
         () => {
 
+
             const vak =
+
                 document.createElement(
                     "div"
                 );
 
+
             vak.className =
                 "zin-vak";
+
 
             zinVakken.appendChild(
                 vak
             );
+
+
         }
+
     );
 
 
+
     const losse =
+
         woordenInZin.map(
+
             (woord, id) => ({
+
                 woord,
+
                 id
+
             })
+
         );
 
 
+
     let gemixt =
-        mix(losse);
+        mix(
+            losse
+        );
 
 
-    /* Voorkom zo veel mogelijk dat
-       de zin meteen goed staat */
 
-    if (losse.length > 1) {
+    /* Voorkomen dat de zin
+       meteen goed staat */
 
-        let pogingen = 0;
+
+    if (
+        losse.length > 1
+    ) {
+
+
+        let pogingen =
+            0;
+
 
         while (
+
             gemixt.every(
+
                 (item, index) =>
+
                     item.id ===
                     losse[index].id
-            ) &&
+
+            )
+
+            &&
+
             pogingen < 10
+
         ) {
 
+
             gemixt =
-                mix(losse);
+                mix(
+                    losse
+                );
+
 
             pogingen++;
+
+
         }
+
     }
 
 
+
     gemixt.forEach(
+
         item => {
 
+
             const knop =
+
                 document.createElement(
                     "button"
                 );
 
+
             knop.className =
                 "los-woord";
+
 
             knop.textContent =
                 item.woord;
 
+
             knop.addEventListener(
+
                 "click",
+
                 () => {
+
+
                     kiesWoordVoorZin(
+
                         knop,
+
                         item.woord
+
                     );
+
+
                 }
+
             );
+
 
             losseWoorden.appendChild(
                 knop
             );
+
+
         }
+
     );
+
 }
 
 
 /* =========================
-   WOORD VOOR ZIN KIEZEN
+   WOORD KIEZEN VOOR ZIN
 ========================= */
 
 function kiesWoordVoorZin(
+
     knop,
+
     woord
+
 ) {
 
-    if (geblokkeerd) {
-        return;
-    }
 
     if (
+        geblokkeerd
+    ) {
+
+        return;
+
+    }
+
+
+    if (
+
         knop.classList.contains(
             "gebruikt"
         )
+
     ) {
+
         return;
+
     }
 
+
     gekozenWoorden.push({
+
         woord,
+
         knop
+
     });
+
 
     knop.classList.add(
         "gebruikt"
     );
 
+
     updateZinVakken();
+
 
     const huidig =
         ronde[nummer];
 
+
     const aantalWoorden =
+
         huidig
+
             .trim()
+
             .split(/\s+/)
+
             .length;
 
+
     if (
+
         gekozenWoorden.length ===
         aantalWoorden
+
     ) {
 
+
         controleerGebouwdeZin();
+
+
     }
+
 }
 
 
@@ -1512,21 +2391,32 @@ function kiesWoordVoorZin(
 
 function updateZinVakken() {
 
+
     const vakken =
+
         zinVakken.querySelectorAll(
             ".zin-vak"
         );
 
+
     vakken.forEach(
+
         (vak, index) => {
 
+
             vak.textContent =
+
                 gekozenWoorden[index]
-                ? gekozenWoorden[index].woord
-                : "";
+
+                    ? gekozenWoorden[index].woord
+
+                    : "";
+
 
         }
+
     );
+
 }
 
 
@@ -1536,47 +2426,79 @@ function updateZinVakken() {
 
 function controleerGebouwdeZin() {
 
+
     const goedeZin =
         ronde[nummer];
 
+
     const gemaakteZin =
+
         gekozenWoorden
+
             .map(
-                item => item.woord
+
+                item =>
+                    item.woord
+
             )
+
             .join(" ");
 
+
+
     if (
+
         gemaakteZin ===
         goedeZin
+
     ) {
 
-        geblokkeerd = true;
+
+        geblokkeerd =
+            true;
+
 
         melding.textContent =
             "Goed gedaan!";
 
+
         melding.className =
             "goed";
 
+
         setTimeout(
+
             volgendeVraag,
+
             700
+
         );
 
-    } else {
+
+    }
+
+    else {
+
 
         melding.textContent =
             "Probeer het nog eens.";
 
+
         melding.className =
             "probeer";
 
+
         setTimeout(
+
             wisZin,
+
             800
+
         );
+
+
     }
+
 }
 
 
@@ -1586,22 +2508,36 @@ function controleerGebouwdeZin() {
 
 function wisZin() {
 
+
     gekozenWoorden.forEach(
+
         item => {
+
 
             item.knop.classList.remove(
                 "gebruikt"
             );
 
+
         }
+
     );
 
-    gekozenWoorden = [];
+
+    gekozenWoorden =
+        [];
+
 
     updateZinVakken();
 
-    melding.textContent = "";
-    melding.className = "";
+
+    melding.textContent =
+        "";
+
+
+    melding.className =
+        "";
+
 }
 
 
@@ -1611,20 +2547,31 @@ function wisZin() {
 
 function volgendeVraag() {
 
+
     nummer++;
 
+
     if (
+
         nummer >=
         ronde.length
+
     ) {
+
 
         eindeSpel();
 
-    } else {
+
+    }
+
+    else {
+
 
         nieuweVraag();
 
+
     }
+
 }
 
 
@@ -1634,14 +2581,18 @@ function volgendeVraag() {
 
 function eindeSpel() {
 
+
     spel.style.display =
         "none";
+
 
     klaar.style.display =
         "flex";
 
+
     terugKnop.style.display =
         "none";
+
 }
 
 
@@ -1650,52 +2601,98 @@ function eindeSpel() {
 ========================= */
 
 kiesWoordKnop.addEventListener(
+
     "click",
-    () => startSpel("woord")
+
+    () =>
+        startSpel("woord")
+
 );
+
 
 eersteLetterKnop.addEventListener(
+
     "click",
-    () => startSpel("letter")
+
+    () =>
+        startSpel("letter")
+
 );
+
 
 bouwWoordKnop.addEventListener(
+
     "click",
-    () => startSpel("bouw")
+
+    () =>
+        startSpel("bouw")
+
 );
+
 
 bouwZinKnop.addEventListener(
+
     "click",
-    () => startSpel("zin")
+
+    () =>
+        startSpel("zin")
+
 );
+
 
 wisKnop.addEventListener(
+
     "click",
+
     wisLetters
+
 );
+
 
 wisZinKnop.addEventListener(
+
     "click",
+
     wisZin
+
 );
+
 
 terugKnop.addEventListener(
+
     "click",
+
     toonMenu
+
 );
 
-document
-    .getElementById("opnieuwKnop")
-    .addEventListener(
-        "click",
-        () => startSpel(spelType)
-    );
 
 document
-    .getElementById("menuKnop")
+    .getElementById(
+        "opnieuwKnop"
+    )
     .addEventListener(
+
         "click",
+
+        () =>
+            startSpel(
+                spelType
+            )
+
+    );
+
+
+document
+    .getElementById(
+        "menuKnop"
+    )
+    .addEventListener(
+
+        "click",
+
         toonMenu
+
     );
 
 
@@ -1704,9 +2701,12 @@ document
 ========================= */
 
 toonMenu();
+
 laadActieveWeek();
 
+
 </script>
+
 
 </body>
 </html>
