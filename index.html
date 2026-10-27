@@ -118,7 +118,6 @@ main {
 
 .menu-knop {
     min-height: 150px;
-
     padding: 20px;
 
     border: 4px solid #333;
@@ -154,7 +153,6 @@ main {
 
 #andereWeekKnop {
     margin-top: 28px;
-
     padding: 13px 22px;
 
     border: 3px solid #333;
@@ -175,7 +173,6 @@ main {
 
 #status {
     position: absolute;
-
     top: 20px;
     left: 0;
     right: 0;
@@ -197,7 +194,6 @@ main {
     display: none;
 
     position: fixed;
-
     top: 22px;
     left: 22px;
 
@@ -235,14 +231,12 @@ main {
 #instructie {
     font-size: 24px;
     font-weight: bold;
-
     margin-bottom: 18px;
 }
 
 #voortgang {
     font-size: 21px;
     font-weight: bold;
-
     margin-bottom: 20px;
 }
 
@@ -274,7 +268,6 @@ main {
     height: 100%;
 
     object-fit: contain;
-
     padding: 12px;
 }
 
@@ -285,13 +278,11 @@ main {
 
 #antwoorden {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
 
     gap: 18px;
 
     max-width: 750px;
-
     margin: 0 auto;
 }
 
@@ -329,8 +320,8 @@ main {
 
 #woordVakken {
     display: flex;
-
     justify-content: center;
+    flex-wrap: wrap;
 
     gap: 12px;
 
@@ -338,11 +329,12 @@ main {
 }
 
 .woord-vak {
-    width: 72px;
+    min-width: 72px;
     height: 78px;
 
-    display: flex;
+    padding: 0 10px;
 
+    display: flex;
     align-items: center;
     justify-content: center;
 
@@ -354,17 +346,17 @@ main {
 
 #losseLetters {
     display: flex;
-
     justify-content: center;
-
     flex-wrap: wrap;
 
     gap: 16px;
 }
 
 .losse-letter {
-    width: 82px;
+    min-width: 82px;
     height: 82px;
+
+    padding: 0 15px;
 
     border: 3px solid #333;
     border-radius: 20px;
@@ -394,9 +386,7 @@ main {
 
 #zinVakken {
     display: flex;
-
     justify-content: center;
-
     flex-wrap: wrap;
 
     gap: 12px;
@@ -411,7 +401,6 @@ main {
     padding: 8px 14px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -423,15 +412,12 @@ main {
 
 #losseWoorden {
     display: flex;
-
     justify-content: center;
-
     flex-wrap: wrap;
 
     gap: 16px;
 
     max-width: 800px;
-
     margin: 0 auto;
 }
 
@@ -460,13 +446,12 @@ main {
 
 
 /* =========================
-   WIS
+   WISKNOP
 ========================= */
 
 #wisKnop,
 #wisZinKnop {
     margin-top: 25px;
-
     padding: 12px 22px;
 
     border: 3px solid #333;
@@ -487,7 +472,6 @@ main {
 
 #melding {
     min-height: 45px;
-
     margin-top: 24px;
 
     font-size: 27px;
@@ -529,15 +513,12 @@ main {
 
 .klaar-kaart h2 {
     font-size: 45px;
-
     margin-top: 0;
 }
 
 .klaar-knoppen {
     display: flex;
-
     justify-content: center;
-
     flex-wrap: wrap;
 
     gap: 15px;
@@ -584,7 +565,6 @@ main {
     .week-knop,
     .menu-knop {
         min-height: 100px;
-
         font-size: 24px;
     }
 
@@ -601,15 +581,19 @@ main {
     }
 
     .woord-vak {
-        width: 58px;
+        min-width: 58px;
         height: 65px;
+
+        padding: 0 8px;
 
         font-size: 36px;
     }
 
     .losse-letter {
-        width: 70px;
+        min-width: 70px;
         height: 70px;
+
+        padding: 0 12px;
 
         font-size: 36px;
     }
@@ -646,18 +630,14 @@ main {
 <button
     id="terugKnop"
     class="terug-knop">
-
     ← Terug
-
 </button>
 
 
 <main>
 
 
-<!-- =========================
-     WEEK KIEZEN
-========================= -->
+<!-- WEEK KIEZEN -->
 
 <section id="weekMenu">
 
@@ -676,9 +656,7 @@ main {
 </section>
 
 
-<!-- =========================
-     SPELMENU
-========================= -->
+<!-- SPELMENU -->
 
 <section id="startMenu">
 
@@ -692,48 +670,34 @@ main {
                 id="kiesWoordKnop"
                 class="menu-knop"
                 disabled>
-
                 Kies het woord
-
             </button>
-
 
             <button
                 id="eersteLetterKnop"
                 class="menu-knop"
                 disabled>
-
                 Eerste letter
-
             </button>
-
 
             <button
                 id="bouwWoordKnop"
                 class="menu-knop"
                 disabled>
-
                 Bouw het woord
-
             </button>
-
 
             <button
                 id="bouwZinKnop"
                 class="menu-knop"
                 disabled>
-
                 Bouw de zin
-
             </button>
 
         </div>
 
-
         <button id="andereWeekKnop">
-
             ← Andere week
-
         </button>
 
     </div>
@@ -741,9 +705,7 @@ main {
 </section>
 
 
-<!-- =========================
-     SPEL
-========================= -->
+<!-- SPEL -->
 
 <section id="spel">
 
@@ -802,9 +764,7 @@ main {
 </section>
 
 
-<!-- =========================
-     KLAAR
-========================= -->
+<!-- KLAAR -->
 
 <section id="klaar">
 
@@ -817,18 +777,13 @@ main {
             <button
                 id="opnieuwKnop"
                 class="klaar-knop">
-
                 Nog een keer
-
             </button>
-
 
             <button
                 id="menuKnop"
                 class="klaar-knop secundair">
-
                 Terug naar menu
-
             </button>
 
         </div>
@@ -856,13 +811,11 @@ let weekMap = "";
 
 let allesOefenen = false;
 
-
 let woorden = [];
 
 let beginLetters = [];
 
 let zinnen = [];
-
 
 let spelType = "";
 
@@ -871,7 +824,6 @@ let ronde = [];
 let nummer = 0;
 
 let geblokkeerd = false;
-
 
 let gekozenLetters = [];
 
@@ -883,175 +835,92 @@ let gekozenWoorden = [];
 ========================= */
 
 const weekMenu =
-    document.getElementById(
-        "weekMenu"
-    );
-
+    document.getElementById("weekMenu");
 
 const weekKnoppen =
-    document.getElementById(
-        "weekKnoppen"
-    );
-
+    document.getElementById("weekKnoppen");
 
 const startMenu =
-    document.getElementById(
-        "startMenu"
-    );
-
+    document.getElementById("startMenu");
 
 const gekozenWeekTitel =
-    document.getElementById(
-        "gekozenWeekTitel"
-    );
-
+    document.getElementById("gekozenWeekTitel");
 
 const andereWeekKnop =
-    document.getElementById(
-        "andereWeekKnop"
-    );
-
+    document.getElementById("andereWeekKnop");
 
 const spel =
-    document.getElementById(
-        "spel"
-    );
-
+    document.getElementById("spel");
 
 const klaar =
-    document.getElementById(
-        "klaar"
-    );
-
+    document.getElementById("klaar");
 
 const terugKnop =
-    document.getElementById(
-        "terugKnop"
-    );
-
+    document.getElementById("terugKnop");
 
 const spelTitel =
-    document.getElementById(
-        "spelTitel"
-    );
-
+    document.getElementById("spelTitel");
 
 const instructie =
-    document.getElementById(
-        "instructie"
-    );
-
+    document.getElementById("instructie");
 
 const voortgang =
-    document.getElementById(
-        "voortgang"
-    );
-
+    document.getElementById("voortgang");
 
 const plaatje =
-    document.getElementById(
-        "plaatje"
-    );
-
+    document.getElementById("plaatje");
 
 const plaatjeVak =
-    document.querySelector(
-        ".plaatje-vak"
-    );
-
+    document.querySelector(".plaatje-vak");
 
 const antwoorden =
-    document.getElementById(
-        "antwoorden"
-    );
-
+    document.getElementById("antwoorden");
 
 const bouwGebied =
-    document.getElementById(
-        "bouwGebied"
-    );
-
+    document.getElementById("bouwGebied");
 
 const woordVakken =
-    document.getElementById(
-        "woordVakken"
-    );
-
+    document.getElementById("woordVakken");
 
 const losseLetters =
-    document.getElementById(
-        "losseLetters"
-    );
-
+    document.getElementById("losseLetters");
 
 const wisKnop =
-    document.getElementById(
-        "wisKnop"
-    );
-
+    document.getElementById("wisKnop");
 
 const zinGebied =
-    document.getElementById(
-        "zinGebied"
-    );
-
+    document.getElementById("zinGebied");
 
 const zinVakken =
-    document.getElementById(
-        "zinVakken"
-    );
-
+    document.getElementById("zinVakken");
 
 const losseWoorden =
-    document.getElementById(
-        "losseWoorden"
-    );
-
+    document.getElementById("losseWoorden");
 
 const wisZinKnop =
-    document.getElementById(
-        "wisZinKnop"
-    );
-
+    document.getElementById("wisZinKnop");
 
 const melding =
-    document.getElementById(
-        "melding"
-    );
-
+    document.getElementById("melding");
 
 const status =
-    document.getElementById(
-        "status"
-    );
-
+    document.getElementById("status");
 
 const kiesWoordKnop =
-    document.getElementById(
-        "kiesWoordKnop"
-    );
-
+    document.getElementById("kiesWoordKnop");
 
 const eersteLetterKnop =
-    document.getElementById(
-        "eersteLetterKnop"
-    );
-
+    document.getElementById("eersteLetterKnop");
 
 const bouwWoordKnop =
-    document.getElementById(
-        "bouwWoordKnop"
-    );
-
+    document.getElementById("bouwWoordKnop");
 
 const bouwZinKnop =
-    document.getElementById(
-        "bouwZinKnop"
-    );
+    document.getElementById("bouwZinKnop");
 
 
 /* =========================
-   BESCHIKBARE WEKEN LADEN
+   WEKEN LADEN
 ========================= */
 
 async function laadBeschikbareWeken() {
@@ -1061,16 +930,12 @@ async function laadBeschikbareWeken() {
         const tijd =
             Date.now();
 
-
         const response =
             await fetch(
                 `weken/actief.json?v=${tijd}`
             );
 
-
-        if (
-            !response.ok
-        ) {
+        if (!response.ok) {
 
             throw new Error(
                 "actief.json niet gevonden"
@@ -1078,22 +943,14 @@ async function laadBeschikbareWeken() {
 
         }
 
-
         const data =
             await response.json();
 
-
         laatsteWeek =
-            Number(
-                data.week
-            );
-
+            Number(data.week);
 
         if (
-            !Number.isInteger(
-                laatsteWeek
-            )
-            ||
+            !Number.isInteger(laatsteWeek) ||
             laatsteWeek < 1
         ) {
 
@@ -1103,9 +960,7 @@ async function laadBeschikbareWeken() {
 
         }
 
-
         maakWeekKnoppen();
-
 
         status.textContent =
             "";
@@ -1114,14 +969,10 @@ async function laadBeschikbareWeken() {
 
     catch (fout) {
 
-        console.error(
-            fout
-        );
-
+        console.error(fout);
 
         status.textContent =
             "De weken konden niet worden geladen.";
-
 
         status.classList.add(
             "foutmelding"
@@ -1141,7 +992,6 @@ function maakWeekKnoppen() {
     weekKnoppen.innerHTML =
         "";
 
-
     for (
         let week = 1;
         week <= laatsteWeek;
@@ -1153,20 +1003,16 @@ function maakWeekKnoppen() {
                 "button"
             );
 
-
         knop.className =
             "week-knop";
 
-
         knop.textContent =
             `Week ${week}`;
-
 
         knop.addEventListener(
             "click",
             () => kiesWeek(week)
         );
-
 
         weekKnoppen.appendChild(
             knop
@@ -1175,27 +1021,21 @@ function maakWeekKnoppen() {
     }
 
 
-    /* ALLE WEKEN */
-
     const allesKnop =
         document.createElement(
             "button"
         );
 
-
     allesKnop.className =
         "week-knop alles-knop";
 
-
     allesKnop.textContent =
         "Alle weken";
-
 
     allesKnop.addEventListener(
         "click",
         kiesAlleWeken
     );
-
 
     weekKnoppen.appendChild(
         allesKnop
@@ -1208,48 +1048,38 @@ function maakWeekKnoppen() {
    ÉÉN WEEK KIEZEN
 ========================= */
 
-async function kiesWeek(
-    week
-) {
+async function kiesWeek(week) {
 
     status.textContent =
         `Week ${week} laden...`;
 
-
     status.classList.remove(
         "foutmelding"
     );
-
 
     try {
 
         allesOefenen =
             false;
 
-
         actieveWeek =
             week;
 
-
         weekMap =
             `week${String(week).padStart(2, "0")}`;
-
 
         const tijd =
             Date.now();
 
 
-        /* WOORDEN LADEN */
+        /* WOORDEN */
 
         const woordenResponse =
             await fetch(
                 `weken/${weekMap}/woorden.json?v=${tijd}`
             );
 
-
-        if (
-            !woordenResponse.ok
-        ) {
+        if (!woordenResponse.ok) {
 
             throw new Error(
                 `Week ${week} niet gevonden`
@@ -1257,10 +1087,8 @@ async function kiesWeek(
 
         }
 
-
         const lijst =
             await woordenResponse.json();
-
 
         woorden =
             lijst.map(
@@ -1285,13 +1113,10 @@ async function kiesWeek(
         ];
 
 
-        /* =========================
-           ZINNEN LADEN
-        ========================= */
+        /* ZINNEN */
 
         zinnen =
             [];
-
 
         try {
 
@@ -1300,14 +1125,10 @@ async function kiesWeek(
                     `weken/${weekMap}/zinnen.json?v=${tijd}`
                 );
 
-
-            if (
-                zinnenResponse.ok
-            ) {
+            if (zinnenResponse.ok) {
 
                 const zinnenLijst =
                     await zinnenResponse.json();
-
 
                 if (
                     Array.isArray(
@@ -1317,12 +1138,13 @@ async function kiesWeek(
 
                     zinnen =
                         zinnenLijst
+
                             .filter(
                                 zin =>
-                                    typeof zin === "string"
-                                    &&
+                                    typeof zin === "string" &&
                                     zin.trim().length > 0
                             )
+
                             .map(
                                 zin =>
                                     zin.trim()
@@ -1360,14 +1182,10 @@ async function kiesWeek(
 
     catch (fout) {
 
-        console.error(
-            fout
-        );
-
+        console.error(fout);
 
         status.textContent =
             `Week ${week} kon niet worden geladen.`;
-
 
         status.classList.add(
             "foutmelding"
@@ -1387,39 +1205,30 @@ async function kiesAlleWeken() {
     status.textContent =
         "Alle weken laden...";
 
-
     status.classList.remove(
         "foutmelding"
     );
-
 
     try {
 
         allesOefenen =
             true;
 
-
         actieveWeek =
             0;
-
 
         weekMap =
             "";
 
-
         zinnen =
             [];
-
 
         const tijd =
             Date.now();
 
-
         const alleWoorden =
             [];
 
-
-        /* ALLE WOORDEN.JSON BESTANDEN LADEN */
 
         for (
             let week = 1;
@@ -1430,16 +1239,12 @@ async function kiesAlleWeken() {
             const map =
                 `week${String(week).padStart(2, "0")}`;
 
-
             const response =
                 await fetch(
                     `weken/${map}/woorden.json?v=${tijd}`
                 );
 
-
-            if (
-                !response.ok
-            ) {
+            if (!response.ok) {
 
                 throw new Error(
                     `Week ${week} kon niet worden geladen`
@@ -1447,10 +1252,8 @@ async function kiesAlleWeken() {
 
             }
 
-
             const lijst =
                 await response.json();
-
 
             lijst.forEach(
                 woord => {
@@ -1470,13 +1273,10 @@ async function kiesAlleWeken() {
         }
 
 
-        /* =========================
-           DUBBELE WOORDEN VERWIJDEREN
-        ========================= */
+        /* DUBBELE WOORDEN VERWIJDEREN */
 
         const uniek =
             new Map();
-
 
         alleWoorden.forEach(
             item => {
@@ -1515,11 +1315,10 @@ async function kiesAlleWeken() {
         activeerSpelKnoppen();
 
 
-        /* GEEN BOUW DE ZIN BIJ ALLE WEKEN */
+        /* GEEN ZINNEN BIJ ALLE WEKEN */
 
         bouwZinKnop.style.display =
             "none";
-
 
         bouwZinKnop.disabled =
             true;
@@ -1539,14 +1338,10 @@ async function kiesAlleWeken() {
 
     catch (fout) {
 
-        console.error(
-            fout
-        );
-
+        console.error(fout);
 
         status.textContent =
             "Alle weken konden niet worden geladen.";
-
 
         status.classList.add(
             "foutmelding"
@@ -1558,7 +1353,7 @@ async function kiesAlleWeken() {
 
 
 /* =========================
-   SPELKNOPPEN ACTIVEREN
+   SPELKNOPPEN
 ========================= */
 
 function activeerSpelKnoppen() {
@@ -1566,24 +1361,20 @@ function activeerSpelKnoppen() {
     kiesWoordKnop.disabled =
         false;
 
-
     eersteLetterKnop.disabled =
         false;
-
 
     bouwWoordKnop.disabled =
         false;
 
 
     if (
-        !allesOefenen
-        &&
+        !allesOefenen &&
         zinnen.length > 0
     ) {
 
         bouwZinKnop.style.display =
             "block";
-
 
         bouwZinKnop.disabled =
             false;
@@ -1595,7 +1386,6 @@ function activeerSpelKnoppen() {
         bouwZinKnop.style.display =
             "none";
 
-
         bouwZinKnop.disabled =
             true;
 
@@ -1605,7 +1395,7 @@ function activeerSpelKnoppen() {
 
 
 /* =========================
-   WEEKMENU TONEN
+   SCHERMEN
 ========================= */
 
 function toonWeekMenu() {
@@ -1613,18 +1403,14 @@ function toonWeekMenu() {
     weekMenu.style.display =
         "flex";
 
-
     startMenu.style.display =
         "none";
-
 
     spel.style.display =
         "none";
 
-
     klaar.style.display =
         "none";
-
 
     terugKnop.style.display =
         "none";
@@ -1632,27 +1418,19 @@ function toonWeekMenu() {
 }
 
 
-/* =========================
-   SPELMENU TONEN
-========================= */
-
 function toonSpelMenu() {
 
     weekMenu.style.display =
         "none";
 
-
     startMenu.style.display =
         "flex";
-
 
     spel.style.display =
         "none";
 
-
     klaar.style.display =
         "none";
-
 
     terugKnop.style.display =
         "none";
@@ -1664,13 +1442,10 @@ function toonSpelMenu() {
    HUSSEN
 ========================= */
 
-function mix(
-    lijst
-) {
+function mix(lijst) {
 
     const nieuw =
         [...lijst];
-
 
     for (
         let i = nieuw.length - 1;
@@ -1683,7 +1458,6 @@ function mix(
                 Math.random() * (i + 1)
             );
 
-
         [
             nieuw[i],
             nieuw[j]
@@ -1694,8 +1468,85 @@ function mix(
 
     }
 
-
     return nieuw;
+
+}
+
+
+/* =========================
+   WOORD IN KLANKEN SPLITSEN
+========================= */
+
+function splitsInKlanken(woord) {
+
+    const vasteKlanken = [
+
+        "aa",
+        "ee",
+        "oo",
+        "uu",
+
+        "ie",
+        "oe",
+        "eu",
+        "ui",
+
+        "ei",
+        "ij",
+
+        "au",
+        "ou"
+
+    ];
+
+
+    const delen =
+        [];
+
+
+    let i =
+        0;
+
+
+    while (
+        i < woord.length
+    ) {
+
+        const twee =
+            woord.slice(
+                i,
+                i + 2
+            );
+
+
+        if (
+            vasteKlanken.includes(
+                twee
+            )
+        ) {
+
+            delen.push(
+                twee
+            );
+
+            i += 2;
+
+        }
+
+        else {
+
+            delen.push(
+                woord[i]
+            );
+
+            i++;
+
+        }
+
+    }
+
+
+    return delen;
 
 }
 
@@ -1704,39 +1555,31 @@ function mix(
    START SPEL
 ========================= */
 
-function startSpel(
-    type
-) {
+function startSpel(type) {
 
     spelType =
         type;
 
-
-    /* BOUW DE ZIN */
 
     if (
         type === "zin"
     ) {
 
         ronde =
-            mix(
-                zinnen
-            );
+            mix(zinnen);
 
     }
 
 
     /* ALLE WEKEN:
-       SLECHTS 20 WOORDEN */
+       20 WILLEKEURIGE WOORDEN */
 
     else if (
         allesOefenen
     ) {
 
         ronde =
-            mix(
-                woorden
-            ).slice(
+            mix(woorden).slice(
                 0,
                 Math.min(
                     20,
@@ -1747,15 +1590,12 @@ function startSpel(
     }
 
 
-    /* LOSSE WEEK:
-       ALLE WOORDEN */
+    /* LOSSE WEEK */
 
     else {
 
         ronde =
-            mix(
-                woorden
-            );
+            mix(woorden);
 
     }
 
@@ -1767,18 +1607,14 @@ function startSpel(
     weekMenu.style.display =
         "none";
 
-
     startMenu.style.display =
         "none";
-
 
     klaar.style.display =
         "none";
 
-
     spel.style.display =
         "block";
-
 
     terugKnop.style.display =
         "block";
@@ -1798,30 +1634,23 @@ function nieuweVraag() {
     geblokkeerd =
         false;
 
-
     gekozenLetters =
         [];
-
 
     gekozenWoorden =
         [];
 
-
     melding.textContent =
         "";
-
 
     melding.className =
         "";
 
-
     antwoorden.innerHTML =
         "";
 
-
     bouwGebied.style.display =
         "none";
-
 
     zinGebied.style.display =
         "none";
@@ -1835,9 +1664,7 @@ function nieuweVraag() {
         `${nummer + 1} van ${ronde.length}`;
 
 
-    /* =========================
-       BOUW DE ZIN
-    ========================= */
+    /* BOUW DE ZIN */
 
     if (
         spelType === "zin"
@@ -1846,52 +1673,40 @@ function nieuweVraag() {
         plaatjeVak.style.display =
             "none";
 
-
         antwoorden.style.display =
             "none";
-
 
         spelTitel.textContent =
             "Bouw de zin";
 
-
         instructie.textContent =
             "Zet de woorden in de goede volgorde.";
-
 
         zinGebied.style.display =
             "block";
 
-
         maakZinSpel(
             huidig
         );
-
 
         return;
 
     }
 
 
-    /* =========================
-       PLAATJE
-    ========================= */
+    /* PLAATJE */
 
     plaatjeVak.style.display =
         "flex";
 
-
     plaatje.src =
         huidig.afbeelding;
-
 
     plaatje.alt =
         `Plaatje van ${huidig.woord}`;
 
 
-    /* =========================
-       KIES HET WOORD
-    ========================= */
+    /* KIES HET WOORD */
 
     if (
         spelType === "woord"
@@ -1900,14 +1715,11 @@ function nieuweVraag() {
         spelTitel.textContent =
             "Kies het woord";
 
-
         instructie.textContent =
             "Welk woord hoort bij het plaatje?";
 
-
         antwoorden.style.display =
             "grid";
-
 
         maakWoordAntwoorden(
             huidig
@@ -1916,9 +1728,7 @@ function nieuweVraag() {
     }
 
 
-    /* =========================
-       EERSTE LETTER
-    ========================= */
+    /* EERSTE LETTER */
 
     if (
         spelType === "letter"
@@ -1927,14 +1737,11 @@ function nieuweVraag() {
         spelTitel.textContent =
             "Eerste letter";
 
-
         instructie.textContent =
             "Met welke letter begint het woord?";
 
-
         antwoorden.style.display =
             "grid";
-
 
         maakLetterAntwoorden(
             huidig
@@ -1943,9 +1750,7 @@ function nieuweVraag() {
     }
 
 
-    /* =========================
-       BOUW HET WOORD
-    ========================= */
+    /* BOUW HET WOORD */
 
     if (
         spelType === "bouw"
@@ -1954,18 +1759,14 @@ function nieuweVraag() {
         spelTitel.textContent =
             "Bouw het woord";
 
-
         instructie.textContent =
-            "Zet de letters in de goede volgorde.";
-
+            "Zet de klanken in de goede volgorde.";
 
         antwoorden.style.display =
             "none";
 
-
         bouwGebied.style.display =
             "block";
-
 
         maakBouwSpel(
             huidig
@@ -1999,12 +1800,14 @@ function maakWoordAntwoorden(
 
     const keuzes =
         mix([
+
             huidig.woord,
 
             ...andere.map(
                 item =>
                     item.woord
             )
+
         ]);
 
 
@@ -2049,8 +1852,11 @@ function maakLetterAntwoorden(
 
     const keuzes =
         mix([
+
             goed,
+
             ...fout
+
         ]);
 
 
@@ -2150,18 +1956,14 @@ function controleer(
             "fout"
         );
 
-
         knop.disabled =
             true;
-
 
         melding.textContent =
             "Probeer het nog eens.";
 
-
         melding.className =
             "probeer";
-
 
         return;
 
@@ -2199,27 +2001,33 @@ function maakBouwSpel(
     woordVakken.innerHTML =
         "";
 
-
     losseLetters.innerHTML =
         "";
 
 
-    const letters =
-        huidig.woord.split("");
+    /*
+       Niet meer letter voor letter,
+       maar in klanken.
+    */
 
+    const letters =
+        splitsInKlanken(
+            huidig.woord
+        );
+
+
+    /* VAKKEN */
 
     letters.forEach(
-        () => {
+        klank => {
 
             const vak =
                 document.createElement(
                     "div"
                 );
 
-
             vak.className =
                 "woord-vak";
-
 
             woordVakken.appendChild(
                 vak
@@ -2228,6 +2036,8 @@ function maakBouwSpel(
         }
     );
 
+
+    /* LOSSE KLANKEN */
 
     const losse =
         letters.map(
@@ -2250,10 +2060,8 @@ function maakBouwSpel(
                     "button"
                 );
 
-
             knop.className =
                 "losse-letter";
-
 
             knop.textContent =
                 item.letter;
@@ -2283,7 +2091,7 @@ function maakBouwSpel(
 
 
 /* =========================
-   LETTER KIEZEN
+   KLANK KIEZEN
 ========================= */
 
 function kiesLetter(
@@ -2331,9 +2139,21 @@ function kiesLetter(
         ronde[nummer];
 
 
+    /*
+       Belangrijk:
+       tellen hoeveel KLANKEN het woord heeft,
+       niet hoeveel losse letters.
+    */
+
+    const aantalKlanken =
+        splitsInKlanken(
+            huidig.woord
+        ).length;
+
+
     if (
         gekozenLetters.length ===
-        huidig.woord.length
+        aantalKlanken
     ) {
 
         controleerGebouwdWoord();
@@ -2370,7 +2190,7 @@ function updateWoordVakken() {
 
 
 /* =========================
-   GEBOUWD WOORD
+   GEBOUWD WOORD CONTROLEREN
 ========================= */
 
 function controleerGebouwdWoord() {
@@ -2378,6 +2198,13 @@ function controleerGebouwdWoord() {
     const huidig =
         ronde[nummer];
 
+
+    /*
+       Bijvoorbeeld:
+       d + ie + f
+       wordt weer:
+       dief
+    */
 
     const gemaakt =
         gekozenLetters
@@ -2433,7 +2260,7 @@ function controleerGebouwdWoord() {
 
 
 /* =========================
-   LETTERS WISSEN
+   KLANKEN WISSEN
 ========================= */
 
 function wisLetters() {
@@ -2477,7 +2304,6 @@ function maakZinSpel(
     zinVakken.innerHTML =
         "";
 
-
     losseWoorden.innerHTML =
         "";
 
@@ -2496,10 +2322,8 @@ function maakZinSpel(
                     "div"
                 );
 
-
             vak.className =
                 "zin-vak";
-
 
             zinVakken.appendChild(
                 vak
@@ -2526,9 +2350,6 @@ function maakZinSpel(
         );
 
 
-    /* Voorkom zoveel mogelijk
-       dat de zin meteen goed staat */
-
     if (
         losse.length > 1
     ) {
@@ -2538,20 +2359,23 @@ function maakZinSpel(
 
 
         while (
+
             gemixt.every(
                 (item, index) =>
                     item.id ===
                     losse[index].id
             )
+
             &&
+
             pogingen < 10
+
         ) {
 
             gemixt =
                 mix(
                     losse
                 );
-
 
             pogingen++;
 
@@ -2568,10 +2392,8 @@ function maakZinSpel(
                     "button"
                 );
 
-
             knop.className =
                 "los-woord";
-
 
             knop.textContent =
                 item.woord;
@@ -2695,7 +2517,7 @@ function updateZinVakken() {
 
 
 /* =========================
-   GEBOUWDE ZIN
+   GEBOUWDE ZIN CONTROLEREN
 ========================= */
 
 function controleerGebouwdeZin() {
@@ -2827,10 +2649,8 @@ function eindeSpel() {
     spel.style.display =
         "none";
 
-
     klaar.style.display =
         "flex";
-
 
     terugKnop.style.display =
         "none";
@@ -2844,37 +2664,25 @@ function eindeSpel() {
 
 kiesWoordKnop.addEventListener(
     "click",
-    () =>
-        startSpel(
-            "woord"
-        )
+    () => startSpel("woord")
 );
 
 
 eersteLetterKnop.addEventListener(
     "click",
-    () =>
-        startSpel(
-            "letter"
-        )
+    () => startSpel("letter")
 );
 
 
 bouwWoordKnop.addEventListener(
     "click",
-    () =>
-        startSpel(
-            "bouw"
-        )
+    () => startSpel("bouw")
 );
 
 
 bouwZinKnop.addEventListener(
     "click",
-    () =>
-        startSpel(
-            "zin"
-        )
+    () => startSpel("zin")
 );
 
 
@@ -2890,16 +2698,11 @@ wisZinKnop.addEventListener(
 );
 
 
-/* TERUG VAN SPEL NAAR
-   SPELMENU VAN DEZELFDE WEEK */
-
 terugKnop.addEventListener(
     "click",
     toonSpelMenu
 );
 
-
-/* TERUG NAAR WEEKKEUZE */
 
 andereWeekKnop.addEventListener(
     "click",
@@ -2907,22 +2710,15 @@ andereWeekKnop.addEventListener(
 );
 
 
-/* NOG EEN KEER */
-
 document
     .getElementById(
         "opnieuwKnop"
     )
     .addEventListener(
         "click",
-        () =>
-            startSpel(
-                spelType
-            )
+        () => startSpel(spelType)
     );
 
-
-/* TERUG NAAR SPELMENU */
 
 document
     .getElementById(
@@ -2945,7 +2741,5 @@ laadBeschikbareWeken();
 
 </script>
 
-
 </body>
-
 </html>
