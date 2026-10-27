@@ -1,25 +1,26 @@
-woorden.json
-wol.png
-wip.png
-worm.png
-weg.png
-wesp.png
-wolf.png
-poes.png
-koek.png
-boek.png
-broek.png
-voet.png
-koets.png
-zon.png
-zeep.png
-zeil.png
-zes.png
-zak.png
-zoen.png
-vijf.png
-rijst.png
-krijt.png
-ijs.png
-lijst.png
-vijg.png
+[
+  "wol",
+  "wip",
+  "worm",
+  "weg",
+  "wesp",
+  "wolf",
+  "poes",
+  "koek",
+  "boek",
+  "broek",
+  "voet",
+  "koets",
+  "zon",
+  "zeep",
+  "zeil",
+  "zes",
+  "zak",
+  "zoen",
+  "vijf",
+  "rijst",
+  "krijt",
+  "ijs",
+  "lijst",
+  "vijg"
+]
